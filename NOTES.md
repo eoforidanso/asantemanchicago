@@ -14,7 +14,7 @@
 ## Open questions for AACM
 1. **Logo.** The live site's logo file is the Asante Kotoko S.C. football crest, which is the club's own mark. The new site uses an Adinkrahene wordmark until AACM supplies its own logo.
 2. **Phone number.** The home page and footer say (224) 334-6661, but the Contact page says +1 847-401-1145. Which is correct?
-3. **Membership fee.** The registration form still reads "$XXX".
+3. **Membership fee.** The live form said "$XXX"; the new one omits the amount. What is the fee?
 4. **Social links.** Facebook, Twitter, YouTube and LinkedIn have no real URLs on the live site.
 5. **Media albums.** The four "View Album" buttons on the live site go nowhere. Where do the photos live?
 6. **Inauguration.** It was held May 23–24, 2026, which has passed. Should the page become a recap or gallery?
