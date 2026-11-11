@@ -1,0 +1,90 @@
+{
+  "_note": "Photos live in assets/img/people/. Each person: name, title (stool or office), photo. Order is display order.",
+
+  "exec-stool": [
+    {"name": "Nana Kwame Frimpong Abayie", "title": "Chicago Asantefuohene", "photo": "../site/1.png"},
+    {"name": "Nana Afia Durowaa Nhyira", "title": "Chicago Asantefuohemaa", "photo": "Nana-Afia-Durowaah.jpg"}
+  ],
+
+  "exec-chiefs": [
+    {"name": "Daasebre Kwame", "title": "Akyeamehene", "photo": "Daasebre-Kwame.jpg"},
+    {"name": "Daasebre Ohenebeng", "title": "Nifahene", "photo": "Daasebre-Ohenebeng-peprah-.jpg"},
+    {"name": "Baffour Kofi Oduro", "title": "Krontihene", "photo": "Baffour.jpg"},
+    {"name": "Nana Kwabena Afriyie", "title": "Akwamuhene", "photo": "nana-kwabena-afriyie.jpg"},
+    {"name": "Nana Yaw Afriyie Adede", "title": "Benkumhene", "photo": "yaw-afriyie-adade.jpg"},
+    {"name": "Nana Kwabena Osei", "title": "Gyaasehene", "photo": "kwabena-osei.jpg"},
+    {"name": "Nana Poku Boadi Yiadom", "title": "Adontenhene", "photo": "nana-poku-boadi-yiadom.jpg"},
+    {"name": "Oheneba Dwaben Boateng", "title": "Akyempim / Kyidomhene", "photo": "Oheneba-dwaben-boateng.jpg"},
+    {"name": "Nana Kusi Kyeremanteng", "title": "Manwerehene", "photo": "kusi-kyeremanteng.jpg"},
+    {"name": "Nana Kwasi Osei", "title": "Oyokohene", "photo": "Kwasi-osei.jpg"},
+    {"name": "Baffour Agyei Ahenkan", "title": "Dwantoahene", "photo": "baffour-agyei-ahenkan.jpg"},
+    {"name": "Baffour Yaw Amakye Badu", "title": "Ankobeahene", "photo": "Nana-Yaw-Amakye-Badu-1.jpg"},
+    {"name": "Nana Akwasi Agyekum", "title": "Nsumankwahene", "photo": "akwasi-agyekum.jpg"},
+    {"name": "Nana Kwabena Boakye Kaakyire", "title": "Mmrantɛhene", "photo": "Nana-Kwabena-Boakye-kaakyire-1-1.jpg"},
+    {"name": "Barima Osei Kofi", "title": "Sompahene", "photo": "Barima-Osei.jpg"},
+    {"name": "Barimaba Akwasi Owusu Adoumi", "title": "Apagyahene", "photo": "akwasi-owusu-adoumi.jpg"},
+    {"name": "Oheneba Kofi Boakye", "title": "Abrafuohene", "photo": "Oheneba-Kofi-Boakye.jpg"},
+    {"name": "Nana Akwasi Dankwa", "title": "Okyeame", "photo": "akwasi-dankwa.jpg"}
+  ],
+
+  "exec-queens": [
+    {"name": "Nana Akosua Ako Pomaa", "title": "Krontihemaa", "photo": "NANA-AKOSUA-AKO-POMAA.jpg"},
+    {"name": "Ohemaa Abena Sarfowaa", "title": "Akwamuhemaa", "photo": "Ohemaa-Abena-Sarfowaa-.jpg"},
+    {"name": "Nana Abena Asantewaa", "title": "Kyidomhemaa", "photo": "Nana-Abena-Asantewaa.jpg"},
+    {"name": "Nana Darkowaa", "title": "Gyaasehemaa", "photo": "Nana-Darkowaa.jpg"},
+    {"name": "Nana Ama Obuor", "title": "Nifahemaa", "photo": "Nana-Ama-Obour.jpg"},
+    {"name": "Nana Afrakoma Sika I", "title": "Oyokohemaa", "photo": "afrakoma-sika-1.jpg"},
+    {"name": "Nana Obaa Yaa Achia", "title": "Nkosuohemaa", "photo": "obaa-yaa-achia.jpg"},
+    {"name": "Maame Abena Pokuwaa", "title": "Ohene Maame", "photo": "Maame-Abena-Pokuwaa.jpg"}
+  ],
+
+  "exec-officers": [
+    {"name": "Nana Ama Serwaa", "title": "Welfare Director", "photo": "Ohemaa-Ama-Serwaa.jpg"},
+    {"name": "Mary Mensah Sogbe", "title": "Director of Operations", "photo": "mensah-sogbe.jpg"},
+    {"name": "Obatanpa Akosua Serwaa Bonsu", "title": "Program Director / Women Organizer", "photo": "Akosua-Serwaa.jpg"},
+    {"name": "Abena Bredu", "title": "Culture / Programming Coordinator", "photo": "abena-bredu.jpg"},
+    {"name": "Mrs. Millicent Antwi Agyimang", "title": "Financial Secretary, Investment & Welfare", "photo": "Millicent-Antwi-Agyimang.jpg"},
+    {"name": "Maame Konadu", "title": "AACM Chaplain", "photo": "Maame-Konadu.jpg"},
+    {"name": "Mrs. Akua Akyaa Ofosuhene", "title": "Youth Coordinator", "photo": "akua-akyaa-b.jpg"},
+    {"name": "Sabina Antwi", "title": "Welfare", "photo": "sabina-antwi.jpg"},
+    {"name": "Maggie Ennin", "title": "Welfare", "photo": "maggie-ennin-1.jpg"}
+  ],
+
+  "exec-hospitality": [
+    {"name": "Madam Akua Nyarko", "title": "Inaugural Hospitality Team", "photo": "Akua-Nyarko.jpg"},
+    {"name": "Obaapa Konadu", "title": "Hospitality Team", "photo": "Obaapa-Konadu.jpg"},
+    {"name": "Diana Asibey Mensah", "title": "Hospitality Team", "photo": "diana-asibey-mensah.jpeg"},
+    {"name": "Georgina Appiah", "title": "Hospitality Team", "photo": "georgina-appiah.jpg"},
+    {"name": "Maame Konadu Kantanka", "title": "Hospitality Team", "photo": "maame-konadu-kantanka-.jpg"},
+    {"name": "Maame Adwoa Boatemaa", "title": "Hospitality Team", "photo": "maame-adwoa-boatemaa.jpg"}
+  ],
+
+  "elders": [
+    {"name": "Nana Aboagye Manu", "title": "Chicago Asantefoɔ Abusuapanin", "photo": "nana-aboagye-manu.jpeg"},
+    {"name": "Abusuapanin Nana Yaw Asamoah", "title": "Council of Elders · Former Krontihene", "photo": "yaw-asamoah.jpeg"},
+    {"name": "Abusuapanin Nana Kofi Opoku (Joe Lee)", "title": "Council of Elders", "photo": "Kofi-Opoku.jpeg"},
+    {"name": "Obaapanin Abena Achiaa", "title": "Council of Elders", "photo": "obaapanin-abena-achiaa.jpg"},
+    {"name": "Obaapanin Betty Ama Agyeman", "title": "Council of Elders", "photo": "betty-ama-agyeman.jpeg"},
+    {"name": "Obaapanin Sally Amoo-Gottfried Owusu", "title": "Council of Elders", "photo": "sally-owusu.jpeg"},
+    {"name": "Nana Antwi Boasiako", "title": "Council of Elders", "photo": "nana-antwi-boasiako.jpeg"},
+    {"name": "Obaapanin Nana Adwoa Afriyie Dwomoh", "title": "Council of Elders", "photo": "nana-adwo-afriyie-dwomoh.jpeg"},
+    {"name": "Nana Kwaku Duah II", "title": "Council of Elders", "photo": "nana-kwaku-duah-II.jpeg"}
+  ],
+
+  "royalty": [
+    {"name": "Nana Adututu Bofah", "title": "Akwamuhene of Atronie Traditional Council (Bono)", "photo": "nana-adututu-bofah.jpeg"},
+    {"name": "Nana Adjoa Boatemaa Nsutaman", "title": "Nkosuohemaa", "photo": "nana-adjoa-boatemaa.jpeg"},
+    {"name": "Nana Kwaku Baafi Antwi", "title": "Otumfuo Buabasa Aboafohene · Organizer for Pinanko Gyase Adikrofoɔ", "photo": "nana-kwaku.jpeg"},
+    {"name": "Nana Ampong Bosomprah", "title": "Otumfuo Bosompra", "photo": "nana-ampong-bosomprah.jpeg"},
+    {"name": "Nana Ohemaa Akosua Abuyaa Boaduwaa", "title": "Kumasi-Chrapatre Nahniso Hemaa", "photo": "nana-ohemaa-akosua-abuyaa.jpeg"},
+    {"name": "Nana Kwame Mensah", "title": "Asante Bogyawe Adontenhene", "photo": "nana-kwame-mensah.jpeg"}
+  ],
+
+  "former": [
+    {"name": "Nana Addai Baffour", "title": "Former Chicago Asantefoɔhene", "photo": "nana-addai-baffour.jpg"},
+    {"name": "Ohemaa Abena Amponsah", "title": "Former Asantefoɔhemaa", "photo": "ohemaa-abena-amponsah.jpg"},
+    {"name": "Nana Yaw Barnieh Agyeman", "title": "Former Sanaahene", "photo": "nana-yaw-barnieh.jpg"},
+    {"name": "Nana Yaw Sarfo", "title": "Former Sanaahene", "photo": "nana-yaw-sarfo.jpg"},
+    {"name": "Nana Aboagye Sadic Bosompem", "title": "Former Secretary", "photo": "nana-aboagye-sadic.jpg"}
+  ]
+}

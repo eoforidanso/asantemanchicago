@@ -23,3 +23,23 @@ if ('IntersectionObserver' in window) {
 
 // Footer year
 document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
+
+// Forms: until a form service is connected, turn the answers into an email
+// in the visitor's own mail app, addressed to the association.
+document.querySelectorAll('form[data-mailto]').forEach((form) => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const lines = [];
+    form.querySelectorAll('input, select, textarea').forEach((el) => {
+      if (!el.name || el.type === 'submit') return;
+      const label = el.dataset.label || el.closest('label')?.querySelector('span')?.textContent.replace('*', '').trim() || el.name;
+      if (el.type === 'checkbox') { if (el.checked) lines.push(`${label}: Yes`); return; }
+      if (el.value.trim()) lines.push(`${label}: ${el.value.trim()}`);
+    });
+    const subject = form.dataset.subject || 'Website enquiry';
+    const href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+    window.location.href = href;
+    const status = form.querySelector('.form-status');
+    if (status) status.classList.add('show');
+  });
+});
