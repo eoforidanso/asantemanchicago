@@ -123,6 +123,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .brand svg { width: 42px; height: 42px; flex: none; color: var(--gold); }
+.brand img { width: auto; height: 44px; flex: none; }
 .brand-name { font-family: var(--serif); font-size: 21px; line-height: 1; letter-spacing: .01em; }
 .brand-sub { display: block; font: 600 10px/1.4 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--on-dark-muted); margin-top: 4px; }
 
@@ -146,6 +147,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .nav-menu a { display: block; padding: 10px 12px; text-decoration: none; font-size: 15px; color: var(--on-dark); }
 .nav-menu a:hover { background: var(--cocoa-2); color: var(--gold-bright); }
 .nav .btn { margin-left: 10px; padding: 12px 18px; }
+.nav > a.btn--gold { background: var(--gold); color: var(--ink); }
+.nav > a.btn--gold:hover { background: var(--gold-bright); color: var(--ink); }
 .nav-toggle { display: none; background: none; border: 1px solid var(--line-dark); color: var(--on-dark); width: 44px; height: 44px; border-radius: var(--radius); cursor: pointer; }
 .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { display: block; width: 20px; height: 2px; background: currentColor; margin: 0 auto; position: relative; content: ""; }
 .nav-toggle span::before { position: absolute; top: -6px; }

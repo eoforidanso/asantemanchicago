@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAGES = ROOT / "src" / "pages"
-VERSION = "10"  # bump when CSS/JS change so browsers fetch the new files
+VERSION = "12"  # bump when CSS/JS change so browsers fetch the new files
 
 PHONE_DISPLAY = "(224) 334-6661"
 PHONE_TEL = "+12243346661"
@@ -26,8 +26,7 @@ EMAIL = "info@chicagoasanteman.org"
 ADDRESS = "11070 S Western Ave, Chicago, IL 60643"
 MAP_URL = "https://maps.app.goo.gl/mmgueGGtTuZAeEiD7"
 
-LOGO = ('<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.2">'
-        '<circle cx="24" cy="24" r="21.4"/><circle cx="24" cy="24" r="14.2"/><circle cx="24" cy="24" r="7"/></g></svg>')
+LOGO = '<img src="assets/img/logo.png" alt="" width="36" height="44">'
 
 # (key, label, href) or (group-key, label, [(key, label, href), ...])
 NAV = [
@@ -79,7 +78,7 @@ def head(meta):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(meta.get('description', ''))}">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -101,7 +100,6 @@ def head(meta):
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="Asanteman Association of Chicago &amp; Midwest, home">
-      <!-- Adinkrahene: "chief of the adinkra symbols" — greatness and leadership -->
       {LOGO}
       <span><span class="brand-name">Asanteman</span><span class="brand-sub">Chicago &amp; Midwest</span></span>
     </a>

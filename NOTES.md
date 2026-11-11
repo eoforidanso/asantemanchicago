@@ -3,7 +3,7 @@
 ## Direction: "Ahenfie" (the palace)
 - Colours: ink-black and Asante gold, with kente green and maroon as accents, on ivory paper.
 - Type: Fraunces (display serif) and Instrument Sans (body).
-- Kente bands mark section breaks. Adinkra symbols carry their meanings as section marks.
+- Kente bands mark section breaks. The crest is the site logo. Adinkra symbols carry their meanings as section marks.
 - Portraits sit in arch frames with a kente strip underneath, each person labelled with their stool title first.
 - A few Twi touches: Akwaaba, Nkabom.
 
@@ -12,7 +12,7 @@
 - Placeholders dropped: theme stock photos, demo blog posts, the lorem-ipsum FAQ page, the "Start donating poor people" and "children need your help" banners, and the fake volunteer team.
 
 ## Open questions for AACM
-1. **Logo.** The live site's logo file is the Asante Kotoko S.C. football crest, which is the club's own mark. The new site uses an Adinkrahene wordmark until AACM supplies its own logo.
+1. **Logo.** Resolved: the crest from the live site is used as the logo and tab icon, as approved by the group.
 2. **Phone number.** The home page and footer say (224) 334-6661, but the Contact page says +1 847-401-1145. Which is correct?
 3. **Membership fee.** The live form said "$XXX"; the new one omits the amount. What is the fee?
 4. **Social links.** Facebook, Twitter, YouTube and LinkedIn have no real URLs on the live site.
