@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAGES = ROOT / "src" / "pages"
-VERSION = "12"  # bump when CSS/JS change so browsers fetch the new files
+VERSION = "14"  # bump when CSS/JS change so browsers fetch the new files
 
 PHONE_DISPLAY = "(224) 334-6661"
 PHONE_TEL = "+12243346661"
@@ -43,9 +43,9 @@ NAV = [
         ("royalty", "Enstooled Royalty (Ghana)", "enstooled-royalty.html"),
         ("former", "Past Asantefoɔ Executives", "former-executives.html"),
     ]),
-    ("projects", "Projects", "projects.html"),
-    ("inauguration", "Inauguration", "inauguration.html"),
-    ("media", "Media", "media.html"),
+    ("projects", "Programs", "projects.html"),
+    ("inauguration", "Events", "inauguration.html"),
+    ("media", "Gallery", "media.html"),
     ("contact", "Contact", "contact.html"),
 ]
 
@@ -65,7 +65,7 @@ def nav_html(active):
         else:
             cur = ' aria-current="page"' if key == active else ""
             out.append(f'      <a href="{target}"{cur}>{label}</a>')
-    out.append('      <a class="btn btn--gold" href="membership.html">Become a Member</a>')
+    out.append('      <a class="btn btn--gold" href="membership.html">Join Today</a>')
     return "\n".join(out)
 
 
@@ -134,7 +134,7 @@ def foot():
         <li><a href="about.html">About Us</a></li>
         <li><a href="membership.html">Membership</a></li>
         <li><a href="executive-team.html">Leadership</a></li>
-        <li><a href="inauguration.html">Inauguration</a></li>
+        <li><a href="inauguration.html">Events</a></li>
         <li><a href="volunteer.html">Get Involved</a></li>
       </ul>
     </div>
@@ -144,8 +144,8 @@ def foot():
         <li><a href="history.html">Our History</a></li>
         <li><a href="the-asantes.html">The Asantes</a></li>
         <li><a href="otumfuo-osei-tutu-ii.html">Otumfuo Osei Tutu II</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="media.html">Media</a></li>
+        <li><a href="projects.html">Programs</a></li>
+        <li><a href="media.html">Gallery</a></li>
       </ul>
     </div>
     <div>
