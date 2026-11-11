@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAGES = ROOT / "src" / "pages"
-VERSION = "16"  # bump when CSS/JS change so browsers fetch the new files
+VERSION = "17"  # bump when CSS/JS change so browsers fetch the new files
 
 PHONE_DISPLAY = "(224) 334-6661"
 PHONE_TEL = "+12243346661"
@@ -86,16 +86,6 @@ def head(meta):
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-<div class="topbar">
-  <div class="wrap">
-    <div class="tb-left">
-      <a href="mailto:{EMAIL}">{EMAIL}</a>
-      <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
-    </div>
-    <div class="tb-right">{ADDRESS}</div>
-  </div>
-</div>
 
 <header class="site-header">
   <div class="wrap">
