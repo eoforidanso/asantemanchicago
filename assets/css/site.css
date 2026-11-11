@@ -662,3 +662,71 @@ legend { font: 500 20px/1.2 var(--serif); padding: 16px 0 4px; border-top: 1px s
   .hero-figure figcaption { margin-left: 0; font-size: 17px; }
   .nav > a[aria-current="page"]::after, .nav-group > button.is-active::after { display: none; }
 }
+
+/* ==========================================================
+   Homepage sections: same 2026 treatment as the hero
+   ========================================================== */
+:root { --section: clamp(72px, 10vw, 148px); }
+
+/* Faint Adinkra pattern behind every dark band; gold glow on the closing CTA */
+.section.dark, .section.cocoa {
+  background-image: url("../img/pattern-adinkra.png");
+  background-size: 480px 480px;
+}
+.section.cocoa { background-color: var(--cocoa); }
+.section.cta {
+  background-image:
+    radial-gradient(ellipse 70% 120% at 50% 0%, rgba(201,161,74,.16), rgba(201,161,74,.04) 55%, transparent 80%),
+    url("../img/pattern-adinkra.png");
+  background-size: auto, 480px 480px;
+}
+
+/* Bigger, quieter section headings */
+.section-head h2, .split h2, .king h2, .faq h2 { font-size: clamp(36px, 5vw, 62px); letter-spacing: -.015em; }
+.section-head { margin-bottom: clamp(36px, 5vw, 64px); }
+.cta h2 { font-size: clamp(40px, 6vw, 76px); }
+
+/* Intro collage: arched main photo, medallion overlap, gold frame */
+.stack-img { padding: 0 0 56px 56px; }
+.stack-img::before { content: ""; position: absolute; top: -14px; left: 28px; width: 70%; bottom: 100px; border: 1px solid var(--gold); border-radius: 240px 240px 0 0; pointer-events: none; }
+.stack-img .a { position: relative; width: 78%; aspect-ratio: 4/5; object-fit: cover; border-radius: 240px 240px 0 0; }
+.stack-img .b { width: 46%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 6px solid var(--paper); outline: 2px solid var(--gold); box-shadow: 0 18px 40px rgba(0,0,0,.25); }
+.stack-img .stool { left: 4px; top: auto; bottom: 8px; width: 110px; }
+
+/* Pillars: numbered */
+.pillars { counter-reset: pillar; }
+.pillar { counter-increment: pillar; position: relative; }
+.pillar::before { content: "0" counter(pillar); position: absolute; top: 34px; right: 28px; font: 400 15px/1 var(--serif); color: var(--gold); opacity: .7; }
+.pillar:last-child::before { right: 0; }
+
+/* Asantehene: offset gold frame */
+.king-figure::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--gold); pointer-events: none; }
+.king-figure img { position: relative; }
+.king-figure figcaption { z-index: 1; }
+
+/* Impact cards: kente edge */
+.impact-card { position: relative; }
+.impact-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; z-index: 1;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 18px, var(--green) 18px 26px, var(--gold) 26px 40px, var(--maroon) 40px 48px); }
+
+/* Adinkra strip: bigger symbols */
+.glyph { padding: 34px 12px 26px; }
+.glyph img { width: 64px; height: 64px; }
+.glyph b { font-size: 16px; white-space: nowrap; }
+
+@media (max-width: 860px) {
+  .stack-img { max-width: 440px; margin: 0 auto; width: 100%; }
+  .king-figure::before { inset: 12px -10px -12px 10px; }
+}
+@media (max-width: 640px) {
+  :root { --section: 68px; }
+  .section-head h2, .split h2, .king h2, .faq h2 { font-size: 36px; }
+  .stack-img { padding: 0 0 44px 28px; }
+  .stack-img::before { left: 10px; }
+  .stack-img .stool { width: 80px; }
+  .pillar::before { top: 30px; }
+  .glyph { padding: 22px 6px 16px; }
+  .glyph img { width: 44px; height: 44px; }
+  .glyph b { font-size: 14px; }
+  .cta h2 { font-size: 38px; }
+}
