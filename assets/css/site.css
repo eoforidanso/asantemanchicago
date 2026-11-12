@@ -730,3 +730,91 @@ legend { font: 500 20px/1.2 var(--serif); padding: 16px 0 4px; border-top: 1px s
   .glyph b { font-size: 14px; }
   .cta h2 { font-size: 38px; }
 }
+
+/* ==========================================================
+   Refinement pass: quieter, sharper, softer motion
+   ========================================================== */
+:root { --radius: 14px; --radius-lg: 26px; --ease: cubic-bezier(.2, .7, .2, 1); }
+body { letter-spacing: -.003em; }
+h1, h2, h3 { letter-spacing: -.025em; }
+
+/* Eyebrows: sentence case, no rule line */
+.eyebrow { text-transform: none; letter-spacing: 0; font-size: 15px; font-weight: 600; margin-bottom: 16px; }
+.eyebrow::before { display: none; }
+
+/* Pill buttons, sentence case */
+.btn { border-radius: 999px; text-transform: none; letter-spacing: 0; font-size: 16px; font-weight: 500; padding: 14px 26px; transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease); }
+.nav .btn { padding: 10px 20px; font-size: 14px; letter-spacing: 0; }
+.link-arrow { border-bottom: 0; font-weight: 500; text-decoration: none; }
+.link-arrow:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--gold); }
+
+/* Frosted header (blur lives on a pseudo-element so the mobile menu still anchors to the viewport) */
+.site-header { background: transparent; border-bottom: 1px solid transparent; isolation: isolate; transition: border-color .3s; }
+.site-header::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--ink); -webkit-backdrop-filter: saturate(170%) blur(20px); backdrop-filter: saturate(170%) blur(20px); transition: background .3s; }
+.site-header.scrolled { border-bottom-color: var(--line-dark); }
+.site-header.scrolled::before { background: rgba(21, 16, 11, .88); }
+
+/* Softer, rounder surfaces */
+.impact-card, .fact-card, .tier, .form-card, .clan, .album, .notice, .values, .adinkra, .event-flyer img, .manifest, .facts, .contact-photo { border-radius: var(--radius-lg); overflow: hidden; }
+.clan, .manifest, .facts { border-radius: 18px; }
+.field input, .field select, .field textarea { border-radius: 12px; }
+.prose figure img, .project-media img { border-radius: var(--radius-lg); }
+.form-card { border-top-width: 1px; }
+
+/* Motion: slower, softer, staggered */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0ms); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ---------- Statement: words light up as you scroll ---------- */
+.statement-wrap { max-width: 1040px; }
+.statement { font: 400 clamp(28px, 4.2vw, 56px)/1.14 var(--serif); letter-spacing: -.022em; margin: 0 0 36px; text-wrap: pretty; }
+.statement .w { color: rgba(42, 32, 24, .2); transition: color .5s var(--ease); }
+.statement .w.lit { color: var(--ink); }
+
+/* ---------- Moments: horizontal photo strip ---------- */
+.moments-wrap { overflow: hidden; }
+.moments { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))) 8px; -webkit-overflow-scrolling: touch; }
+.moments::-webkit-scrollbar { display: none; }
+.moment { flex: 0 0 clamp(250px, 27vw, 380px); aspect-ratio: 3 / 4; border-radius: var(--radius-lg); overflow: hidden; scroll-snap-align: center; margin: 0; background: radial-gradient(circle at 50% 35%, var(--cocoa-2), var(--ink) 75%); box-shadow: inset 0 0 0 1px var(--line-dark); }
+.moment img { width: 100%; height: 100%; object-fit: cover; }
+.moment.contain img { object-fit: contain; padding: 18px; }
+.moment.wide { flex-basis: clamp(320px, 40vw, 560px); aspect-ratio: 4 / 3; }
+.strip-hint { font-size: 14px; color: var(--on-dark-muted); display: flex; align-items: center; gap: 10px; }
+
+/* ---------- Akan day-name finder ---------- */
+.finder { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.finder h2 { font-size: clamp(36px, 5vw, 62px); margin-bottom: 20px; }
+.finder-card { position: relative; background: var(--ink) url("../img/pattern-adinkra.png") 0 0 / 420px 420px; color: var(--on-dark); border-radius: 30px; padding: clamp(26px, 4vw, 44px); box-shadow: 0 40px 80px -30px rgba(21, 16, 11, .55); overflow: hidden; }
+.finder-card label { display: block; font-size: 14px; color: var(--on-dark-muted); margin-bottom: 10px; }
+.finder-card input[type="date"] { width: 100%; font: 500 20px/1 var(--sans); color: var(--on-dark); background: rgba(255, 255, 255, .06); border: 1px solid var(--line-dark); border-radius: 14px; padding: 16px 18px; color-scheme: dark; }
+.finder-card input[type="date"]:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201, 161, 74, .2); }
+.finder-out { margin-top: 32px; min-height: 230px; }
+.finder-out .prompt { color: var(--on-dark-muted); font: italic 22px/1.35 var(--serif); margin: 0; }
+.finder-day { font: 400 clamp(46px, 6vw, 76px)/1 var(--serif); color: var(--gold-bright); letter-spacing: -.03em; }
+.finder-sub { margin: 10px 0 26px; font-size: 15px; color: var(--on-dark-muted); }
+.finder-names { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.finder-names div { background: rgba(255, 255, 255, .06); border: 1px solid var(--line-dark); border-radius: 18px; padding: 18px 20px; }
+.finder-names small { display: block; font-size: 12px; letter-spacing: .06em; color: var(--on-dark-muted); margin-bottom: 6px; }
+.finder-names b { font: 500 32px/1.1 var(--serif); color: var(--on-dark); }
+.finder-out.pop > * { animation: pop .6s var(--ease) both; }
+@keyframes pop { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (max-width: 860px) { .finder { grid-template-columns: 1fr; } }
+
+/* ---------- The court: division explorer ---------- */
+.divs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 4px 0 6px; margin-bottom: 36px; }
+.divs::-webkit-scrollbar { display: none; }
+.divs button { flex: none; font: 500 15px/1 var(--sans); color: var(--on-dark); background: transparent; border: 1px solid var(--line-dark); border-radius: 999px; padding: 12px 20px; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease); }
+.divs button:hover { border-color: var(--gold); }
+.divs button[aria-selected="true"] { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.div-panel { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 5vw, 80px); align-items: center; min-height: 420px; }
+.div-copy h3 { font: 400 clamp(44px, 6vw, 84px)/1 var(--serif); letter-spacing: -.03em; color: var(--gold-bright); }
+.div-copy .role { font: italic 22px/1.4 var(--serif); color: var(--on-dark); margin: 14px 0 0; }
+.div-copy p { margin: 18px 0 0; max-width: 40ch; }
+.div-people { display: flex; gap: clamp(14px, 3vw, 32px); justify-content: center; }
+.div-people .seat { flex: 0 1 240px; min-width: 0; }
+.div-panel.swap .div-copy > *, .div-panel.swap .div-people > * { animation: pop .55s var(--ease) both; }
+@media (max-width: 860px) { .div-panel { grid-template-columns: 1fr; min-height: 0; } .div-people { justify-content: flex-start; } }
+@media (max-width: 520px) { .div-people .seat { flex-basis: 50%; } .div-people .seat h3 { font-size: 17px; } }
+
+/* Header spacing inside tight screens */
+@media (max-width: 640px) { .statement { font-size: 28px; } .finder-names b { font-size: 26px; } }

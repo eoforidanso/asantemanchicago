@@ -37,3 +37,10 @@ index, about, history, the-asantes, otumfuo-osei-tutu-ii, executive-team, counci
 - **Inauguration venue** comes from the flyer: Hilton Chicago/Northbrook, 2855 Milwaukee Avenue, Northbrook, IL 60062. The date is May 23–24, 2026, which has passed.
 - **Removed:** the lorem-ipsum FAQ page, the theme's demo blog, the shop/cart/donation pages, and the fake volunteer team. There are no Privacy or Terms pages yet, so the footer doesn't link to any.
 - **Forms** open the visitor's email app with their answers, addressed to info@chicagoasanteman.org. They aren't saved anywhere until a form service is connected.
+
+## Homepage features (Nov 2026 refinement)
+- **Akan day-name finder:** enter a birth date, get the Twi day name and the traditional boy/girl names (Kwasi/Akosua through Kwame/Ama). Pure JavaScript, no data collected.
+- **Court explorer:** six divisions (Akwamu, Adonten, Nifa, Benkum, Kyidom, Gyaase) matched to the executive on the site, with the chief and, where listed, the queen mother. It is built from `src/data/leadership.json`, so editing a title there changes the page. If a division has no matching title the build stops with an error.
+- **Scroll-lit statement, counters, moments strip, frosted menu.**
+- Adinkra captions were checked against published sources. Agyindawuru is now "Loyalty, vigilance".
+- The one-line blurbs on the six divisions ("the vanguard", "the right wing", etc.) are standard descriptions of the Asante formation. Ask an elder to confirm before treating them as final.

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=17">
+  <link rel="stylesheet" href="assets/css/site.css?v=19">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -81,24 +81,32 @@
   </section>
   <div class="kente" role="presentation"></div>
 
-  <!-- About / history intro -->
+  <!-- Statement -->
   <section class="section">
-    <div class="wrap split">
-      <div class="stack-img reveal">
-        <img class="a" src="assets/img/site/home_o2.png" alt="Three women in kente cloth and beads at a cultural celebration" loading="lazy">
-        <img class="b" src="assets/img/site/midsession-sm.jpg" alt="Asante royalty under a ceremonial umbrella" loading="lazy">
-        <img class="stool" src="assets/img/site/asanti-stooltbg-300x249.png" alt="" loading="lazy">
-      </div>
-      <div class="reveal">
-        <div class="eyebrow">Our History · Rooted in Tradition</div>
-        <h2>Preserving Asante heritage, building global impact.</h2>
-        <p class="lede">The Asanteman Association of Chicago &amp; Midwest (AACM) is a nonprofit organization proudly representing Asanteman in Chicago since 1960 — promoting Asante culture, unity, entrepreneurship, and development in Ghana through community service, cultural events, and partnerships across North America.</p>
-        <a class="link-arrow" href="about.html">More about us</a>
-        <div class="callout">
-          <div class="num">65+</div>
-          <div>years of Asante community in Chicago<small>Call us: <a href="tel:+12243346661">(224) 334-6661</a></small></div>
+    <div class="wrap statement-wrap">
+      <div class="eyebrow reveal">Our history · Rooted in tradition</div>
+      <p class="statement">The Asanteman Association of Chicago &amp; Midwest (AACM) is a nonprofit organization proudly representing Asanteman in Chicago since 1960 — promoting Asante culture, unity, entrepreneurship, and development in Ghana through community service, cultural events, and partnerships across North America.</p>
+      <a class="link-arrow reveal" href="about.html">More about us</a>
+    </div>
+  </section>
+
+  <!-- Moments -->
+  <section class="section dark moments-wrap" style="padding-bottom:clamp(56px,8vw,112px)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Preserving Asante heritage</div>
+          <h2>Culture, in colour.</h2>
         </div>
+        <p class="strip-hint">Swipe or scroll →</p>
       </div>
+    </div>
+    <div class="moments" tabindex="0" aria-label="Photos from AACM gatherings">
+      <figure class="moment"><img src="assets/img/site/midsession-sm.jpg" alt="Asante royalty under a ceremonial umbrella" loading="lazy"></figure>
+      <figure class="moment wide"><img src="assets/img/site/contact_img.jpg" alt="Chiefs and elders seated together at an AACM gathering" loading="lazy"></figure>
+      <figure class="moment contain"><img src="assets/img/site/home_o2.png" alt="Three women in kente cloth and beads at a cultural celebration" loading="lazy"></figure>
+      <figure class="moment contain"><img src="assets/img/site/about2.png" alt="Asante chiefs in ceremonial cloth with a gold-topped staff" loading="lazy"></figure>
+      <figure class="moment contain"><img src="assets/img/site/asanti-stooltbg-300x249.png" alt="A carved Asante stool" loading="lazy"></figure>
     </div>
   </section>
 
@@ -141,6 +149,39 @@
     </div>
   </section>
 
+  <!-- Akan day names -->
+  <section class="section">
+    <div class="wrap finder">
+      <div class="reveal">
+        <div class="eyebrow"><span class="twi">Din</span> <span class="sep">·</span> Akan tradition</div>
+        <h2>Which day were you born?</h2>
+        <p class="lede">In Akan tradition, a child is named for the day of the week they were born. Enter a birth date to find the name.</p>
+      </div>
+      <div class="finder-card reveal">
+        <label for="birthdate">Date of birth</label>
+        <input type="date" id="birthdate" max="2100-12-31">
+        <div class="finder-out" id="finder-out" aria-live="polite"><p class="prompt">Pick a date and the day will speak.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The court -->
+  <section class="section cocoa">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow"><span class="twi">Ahenfie</span> <span class="sep">·</span> The court</div>
+          <h2>Every stool has a name. Every name has a face.</h2>
+        </div>
+        <p>Asante divisions take their names from the army on the march. Choose a division to meet the people who hold it in Chicago.</p>
+      </div>
+      <div class="divs reveal" role="tablist" aria-label="Divisions of the court"></div>
+      <div class="div-panel" aria-live="polite"></div>
+      <p style="margin-top:36px"><a class="link-arrow" style="color:var(--on-dark)" href="executive-team.html">Meet the full executive team</a></p>
+    </div>
+  </section>
+  <script type="application/json" id="court-data">[{"key": "akwamu", "name": "Akwamu", "role": "The vanguard", "blurb": "The division that goes first.", "people": [{"name": "Nana Kwabena Afriyie", "title": "Akwamuhene", "photo": "assets/img/people/nana-kwabena-afriyie.jpg"}, {"name": "Ohemaa Abena Sarfowaa", "title": "Akwamuhemaa", "photo": "assets/img/people/Ohemaa-Abena-Sarfowaa-.jpg"}]}, {"key": "adonten", "name": "Adonten", "role": "The main body", "blurb": "The centre of the formation.", "people": [{"name": "Nana Poku Boadi Yiadom", "title": "Adontenhene", "photo": "assets/img/people/nana-poku-boadi-yiadom.jpg"}]}, {"key": "nifa", "name": "Nifa", "role": "The right wing", "blurb": "The right hand of the stool.", "people": [{"name": "Daasebre Ohenebeng", "title": "Nifahene", "photo": "assets/img/people/Daasebre-Ohenebeng-peprah-.jpg"}, {"name": "Nana Ama Obuor", "title": "Nifahemaa", "photo": "assets/img/people/Nana-Ama-Obour.jpg"}]}, {"key": "benkum", "name": "Benkum", "role": "The left wing", "blurb": "The left hand of the stool.", "people": [{"name": "Nana Yaw Afriyie Adede", "title": "Benkumhene", "photo": "assets/img/people/yaw-afriyie-adade.jpg"}]}, {"key": "kyidom", "name": "Kyidom", "role": "The rear guard", "blurb": "The division that follows and protects.", "people": [{"name": "Oheneba Dwaben Boateng", "title": "Akyempim / Kyidomhene", "photo": "assets/img/people/Oheneba-dwaben-boateng.jpg"}, {"name": "Nana Abena Asantewaa", "title": "Kyidomhemaa", "photo": "assets/img/people/Nana-Abena-Asantewaa.jpg"}]}, {"key": "gyaase", "name": "Gyaase", "role": "The household", "blurb": "The people closest to the stool.", "people": [{"name": "Nana Kwabena Osei", "title": "Gyaasehene", "photo": "assets/img/people/kwabena-osei.jpg"}, {"name": "Nana Darkowaa", "title": "Gyaasehemaa", "photo": "assets/img/people/Nana-Darkowaa.jpg"}]}]</script>
+
   <!-- Asantehene -->
   <section class="section">
     <div class="wrap king">
@@ -163,41 +204,6 @@
     </div>
   </section>
 
-  <!-- Leadership -->
-  <section class="section cocoa">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">Leading with Purpose, Inspiring with Vision</div>
-          <h2>Our leadership.</h2>
-        </div>
-        <a class="btn btn--ghost" href="executive-team.html" style="color:var(--on-dark)">Meet the full executive</a>
-      </div>
-      <div class="court reveal">
-        <div class="seat">
-          <div class="seat-frame"><img src="assets/img/site/1.png" alt="Nana Kwame Frimpong Abayie" loading="lazy"></div>
-          <div class="stool-title">Chicago Asantefuohene</div>
-          <h3>Nana Kwame Frimpong Abayie</h3>
-        </div>
-        <div class="seat">
-          <div class="seat-frame"><img src="assets/img/people/Nana-Afia-Durowaah.jpg" alt="Nana Afia Durowaa Nhyira" loading="lazy"></div>
-          <div class="stool-title">Chicago Asantefuohemaa</div>
-          <h3>Nana Afia Durowaa Nhyira</h3>
-        </div>
-        <div class="seat">
-          <div class="seat-frame"><img src="assets/img/people/Daasebre-Kwame.jpg" alt="Daasebre Kwame" loading="lazy"></div>
-          <div class="stool-title">Akyeamehene</div>
-          <h3>Daasebre Kwame</h3>
-        </div>
-        <div class="seat">
-          <div class="seat-frame"><img src="assets/img/people/Daasebre-Ohenebeng-peprah-.jpg" alt="Daasebre Ohenebeng" loading="lazy"></div>
-          <div class="stool-title">Nifahene</div>
-          <h3>Daasebre Ohenebeng</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Projects -->
   <section class="section paper-2">
     <div class="wrap">
@@ -216,9 +222,9 @@
             <h3>Equipment for Komfo Anokye Teaching Hospital, Kumasi</h3>
             <p>A 40-foot container of hospital equipment and supplies from Sinai Health System, Chicago, shipped with the Antwi-Barfi family of Maywood and the Otumfuo Educational Fund.</p>
             <div class="stats">
-              <div><b>17</b><span>hospital beds</span></div>
-              <div><b>10</b><span>dialysis machines</span></div>
-              <div><b>$1,500</b><span>freight from AACM</span></div>
+              <div><b><span class="count" data-count="17">17</span></b><span>hospital beds</span></div>
+              <div><b><span class="count" data-count="10">10</span></b><span>dialysis machines</span></div>
+              <div><b><span class="count" data-count="1500" data-prefix="$">$1,500</span></b><span>freight from AACM</span></div>
             </div>
           </div>
         </article>
@@ -229,8 +235,8 @@
             <h3>5,000 books for the Ashanti Public Library</h3>
             <p>Fiction, non-fiction, children's learning aids, and audio-visual resources shipped to the Ashanti Public Library &amp; Cultural Center in Kumasi.</p>
             <div class="stats">
-              <div><b>5,000</b><span>educational materials</span></div>
-              <div><b>100</b><span>shipping boxes</span></div>
+              <div><b><span class="count" data-count="5000">5,000</span></b><span>educational materials</span></div>
+              <div><b><span class="count" data-count="100">100</span></b><span>shipping boxes</span></div>
             </div>
           </div>
         </article>
@@ -258,7 +264,7 @@
         <div class="glyph"><img src="assets/img/adinkra/denkyem-small-img.png" alt=""><b>Denkyem</b><span>Adaptability</span></div>
         <div class="glyph"><img src="assets/img/adinkra/bese-saka-small-img.png" alt=""><b>Bese Saka</b><span>Abundance, unity</span></div>
         <div class="glyph"><img src="assets/img/adinkra/akofena-small-img.png" alt=""><b>Akofena</b><span>Courage, valor</span></div>
-        <div class="glyph"><img src="assets/img/adinkra/agyindawuru-small-img.png" alt=""><b>Agyindawuru</b><span>Faithfulness</span></div>
+        <div class="glyph"><img src="assets/img/adinkra/agyindawuru-small-img.png" alt=""><b>Agyindawuru</b><span>Loyalty, vigilance</span></div>
       </div>
     </div>
   </section>
@@ -355,6 +361,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=17"></script>
+<script src="assets/js/site.js?v=19"></script>
 </body>
 </html>
