@@ -179,3 +179,23 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMo
     if (el && !el.contains(e.relatedTarget)) { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); }
   });
 }
+
+// Tabs (3D keys): click or arrow keys
+document.querySelectorAll('[data-tabs]').forEach((root) => {
+  const tabs = [...root.querySelectorAll('[role="tab"]')];
+  const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+  const show = (i) => tabs.forEach((t, j) => {
+    t.setAttribute('aria-selected', String(i === j));
+    t.tabIndex = i === j ? 0 : -1;
+    panels[j].hidden = i !== j;
+  });
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => show(i));
+    t.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const n = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+      show(n); tabs[n].focus();
+    });
+  });
+  show(0);
+});

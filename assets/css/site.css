@@ -872,3 +872,83 @@ h1, h2, h3 { letter-spacing: -.025em; }
   .hero-stats div { padding: 14px 10px; }
   .hero-stats div + div { padding-left: 12px; }
 }
+
+/* ==========================================================
+   3D tabs + shorter page
+   ========================================================== */
+:root { --section: clamp(52px, 6.5vw, 92px); }
+
+.tabs3d, .divs { display: flex; gap: 12px; overflow-x: auto; scrollbar-width: none; padding: 10px 6px 18px; perspective: 900px; margin-bottom: 8px; }
+.tabs3d::-webkit-scrollbar, .divs::-webkit-scrollbar { display: none; }
+.tabs3d button, .divs button {
+  position: relative; flex: none; cursor: pointer; font: 600 15px/1 var(--sans); color: var(--on-dark);
+  padding: 15px 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,.2); border-top-color: rgba(255,255,255,.42);
+  background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.04));
+  box-shadow: 0 6px 0 rgba(0,0,0,.5), 0 18px 28px -10px rgba(0,0,0,.75), inset 0 1px 0 rgba(255,255,255,.38);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  transform: rotateX(14deg); transform-origin: 50% 100%;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .25s, color .25s;
+}
+.tabs3d button:hover, .divs button:hover { transform: translateY(-3px) rotateX(14deg); border-color: var(--gold); }
+.tabs3d button[aria-selected="true"], .divs button[aria-selected="true"] {
+  color: var(--ink); border-color: rgba(255,255,255,.55);
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  transform: translateY(5px) rotateX(0deg);
+  box-shadow: 0 1px 0 var(--gold-deep), 0 10px 22px -8px rgba(201,161,74,.6), inset 0 1px 0 rgba(255,255,255,.7);
+}
+.tabs3d button:active, .divs button:active { transform: translateY(6px) rotateX(0deg); }
+
+.tabpanels { margin-top: 18px; }
+.tabpanel { background: rgba(255,255,255,.045); border: 1px solid var(--glass-line); border-radius: 30px; padding: clamp(22px, 4vw, 52px); -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 40px 80px -40px rgba(0,0,0,.8); animation: pop .5s var(--ease) both; }
+.tabpanel[hidden] { display: none; }
+.tabpanel > .wrap { padding: 0; max-width: none; }
+.tabpanel .section-head { margin-bottom: 28px; }
+.tabpanel .section-head h2, .tabpanel .king h2, .tabpanel .finder h2, .tabpanel .faq h2 { font-size: clamp(28px, 3.6vw, 44px); }
+.tabpanel .eyebrow { margin-bottom: 10px; }
+
+/* Light-designed blocks, re-coloured for the dark tab panels */
+.explore .impact-card { background: rgba(245, 238, 224, .95); }
+.explore .king .title-line { color: var(--gold-bright); }
+.explore .king p, .explore .faq details p, .explore .lede { color: var(--on-dark-muted); }
+.explore .facts { background: var(--line-dark); border-color: var(--line-dark); }
+.explore .facts div { background: rgba(255,255,255,.05); }
+.explore .facts b { color: var(--on-dark); }
+.explore .facts span { color: var(--on-dark-muted); }
+.explore .faq details, .explore .faq details:last-child { border-color: var(--line-dark); }
+.explore .faq summary::after { color: var(--gold); }
+.explore .link-arrow { color: var(--on-dark); }
+.explore .finder-card { background-color: rgba(10, 8, 5, .6); }
+.explore .adinkra { border-color: var(--line-dark); }
+.explore .glyph { background: rgba(21, 16, 11, .45); }
+.explore .pillars { border-top: 0; }
+.explore .king-figure::before { display: none; }
+
+/* Tighter rhythm */
+.court-section .div-panel { min-height: 0; }
+.cocoa .section-head { margin-bottom: 24px; }
+@media (max-width: 640px) {
+  :root { --section: 48px; }
+  .hero .wrap { gap: 32px; padding-top: 32px; padding-bottom: 44px; }
+  .hero .lede { margin: 16px 0 22px; }
+  .hero-stats { margin-top: 26px; }
+  .statement { font-size: 24px; line-height: 1.2; margin-bottom: 22px; }
+  .moment { flex-basis: 62vw; }
+  .moments-wrap { padding-bottom: 48px !important; }
+  .div-copy h3 { font-size: 44px; }
+  .div-panel { gap: 22px; }
+  .tabs3d button, .divs button { padding: 13px 18px; font-size: 14px; }
+  .tabpanel { border-radius: 24px; padding: 20px 16px; }
+  .finder-out { min-height: 0; margin-top: 22px; }
+  .cta h2 { font-size: 34px; }
+  .cta p { margin-bottom: 22px; }
+}
+@media (max-width: 640px) {
+  .explore .pillars { grid-template-columns: 1fr 1fr; }
+  .explore .pillar, .explore .pillar + .pillar, .explore .pillar:nth-child(even) { padding: 18px 10px 18px 0; border: 0; }
+  .explore .pillar:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--line-dark); }
+  .explore .pillar::before { display: none; }
+  .explore .pillar .mark { width: 40px; height: 40px; margin-bottom: 14px; }
+  .explore .pillar h3 { font-size: 19px; }
+  .explore .pillar p { font-size: 14px; }
+  .explore .pillar .meaning { font-size: 12.5px; }
+}
