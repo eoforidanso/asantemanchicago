@@ -762,8 +762,8 @@ h1, h2, h3 { letter-spacing: -.025em; }
 .form-card { border-top-width: 1px; }
 
 /* Motion: slower, softer, staggered */
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0ms); }
-.reveal.in { opacity: 1; transform: none; }
+.reveal { opacity: 0; translate: 0 26px; transition: opacity .9s var(--ease), translate .9s var(--ease); transition-delay: var(--d, 0ms); }
+.reveal.in { opacity: 1; translate: 0 0; }
 
 /* ---------- Statement: words light up as you scroll ---------- */
 .statement-wrap { max-width: 1040px; }
@@ -818,3 +818,57 @@ h1, h2, h3 { letter-spacing: -.025em; }
 
 /* Header spacing inside tight screens */
 @media (max-width: 640px) { .statement { font-size: 28px; } .finder-names b { font-size: 26px; } }
+
+
+/* ==========================================================
+   Glass + depth
+   ========================================================== */
+:root { --glass: rgba(255, 255, 255, .07); --glass-line: rgba(255, 255, 255, .16); --glass-light: rgba(255, 255, 255, .58); }
+
+/* Colour for the glass to refract */
+.hero, .page-hero { background-image: radial-gradient(ellipse 50% 60% at 88% 18%, rgba(201,161,74,.20), transparent 70%), radial-gradient(ellipse 40% 50% at 6% 92%, rgba(29,90,58,.28), transparent 70%), radial-gradient(ellipse 36% 46% at 60% 100%, rgba(124,31,29,.22), transparent 70%), url("../img/pattern-adinkra.png"); background-size: auto, auto, auto, 480px 480px; }
+.section:not(.dark):not(.cocoa):not(.cta) { background-image: radial-gradient(620px 420px at 10% 6%, rgba(201,161,74,.22), transparent 70%), radial-gradient(560px 460px at 94% 72%, rgba(29,90,58,.14), transparent 70%); }
+.section.cocoa { background-image: radial-gradient(520px 420px at 90% 10%, rgba(201,161,74,.14), transparent 70%), radial-gradient(520px 420px at 4% 90%, rgba(29,90,58,.2), transparent 70%), url("../img/pattern-adinkra.png"); background-size: auto, auto, 480px 480px; }
+
+/* Dark glass */
+.hero-stats { background: var(--glass); border: 1px solid var(--glass-line); border-radius: 22px; padding: 4px 6px; -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%); box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 30px 60px -28px rgba(0,0,0,.7); }
+.hero-stats div { padding: 16px 20px; }
+.hero-stats div + div { padding-left: 20px; }
+.hero-figure figcaption { background: rgba(245, 238, 224, .78); -webkit-backdrop-filter: blur(16px) saturate(150%); backdrop-filter: blur(16px) saturate(150%); border: 1px solid rgba(255,255,255,.5); border-top: 3px solid var(--gold); border-radius: 0 0 20px 20px; box-shadow: 0 24px 40px -20px rgba(0,0,0,.6); }
+.nav-menu { background: rgba(36, 25, 17, .78); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border-radius: 18px; border: 1px solid var(--glass-line); box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 30px 60px -20px rgba(0,0,0,.6); }
+.divs button { background: var(--glass); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.div-people .seat { background: var(--glass); border: 1px solid var(--glass-line); border-radius: 30px; padding: 14px 14px 20px; -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 30px 50px -26px rgba(0,0,0,.7); }
+.finder-card { background-color: rgba(21, 16, 11, .86); border: 1px solid var(--glass-line); -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%); box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 50px 90px -34px rgba(21,16,11,.7); }
+.tier--dark, .fact-card { box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 30px 60px -28px rgba(21,16,11,.6); }
+
+/* Light glass on ivory */
+.impact-card, .tier:not(.tier--dark), .form-card, .clan { background: var(--glass-light); border: 1px solid rgba(255,255,255,.75); -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 28px 50px -24px rgba(42,32,24,.3), 0 2px 6px rgba(42,32,24,.06); }
+.form-card { border-top: 1px solid rgba(255,255,255,.75); }
+
+/* 3D tilt: mouse devices only */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .impact-card, .tier, .finder-card, .fact-card, .seat, .album, .hero-figure {
+    position: relative; transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d;
+    transition: transform .3s ease-out, opacity .9s var(--ease), translate .9s var(--ease), box-shadow .3s;
+    transition-delay: 0ms, var(--d, 0ms), var(--d, 0ms), 0ms;
+  }
+  .impact-card:hover, .tier:hover, .seat:hover, .album:hover, .fact-card:hover { box-shadow: 0 40px 70px -26px rgba(0,0,0,.45); }
+  .hero-figure img.medal { transform: translateZ(70px); }
+  .hero-figure figcaption { transform: translateZ(40px); }
+  .seat h3, .seat .stool-title, .impact-body, .tier h2 { transform: translateZ(22px); }
+  .impact-card::after, .tier::after, .finder-card::after, .fact-card::after, .seat::after, .album::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,.2), transparent 60%);
+  }
+  .impact-card:hover::after, .tier:hover::after, .finder-card:hover::after, .fact-card:hover::after, .seat:hover::after, .album:hover::after { opacity: 1; }
+}
+
+/* Footer: centred legal line, centred columns on small screens */
+.legal .wrap { flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; }
+@media (max-width: 640px) {
+  .site-footer .wrap { text-align: center; justify-items: center; }
+  .site-footer .brand { justify-content: center; }
+  .site-footer ul { justify-items: center; }
+  .hero-stats div { padding: 14px 10px; }
+  .hero-stats div + div { padding-left: 12px; }
+}

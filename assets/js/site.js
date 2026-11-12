@@ -160,3 +160,22 @@ if (courtData && divsEl) {
   });
   render(0);
 }
+
+// 3D tilt + moving sheen (mouse devices only; delegated so injected cards work too)
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) {
+  const TILT = '.impact-card, .tier, .finder-card, .fact-card, .seat, .album, .hero-figure';
+  document.addEventListener('pointermove', (e) => {
+    const el = e.target.closest && e.target.closest(TILT);
+    if (!el) return;
+    const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    const max = el.matches('.seat') ? 10 : el.matches('.hero-figure') ? 5 : 7;
+    el.style.setProperty('--ry', ((x - 0.5) * 2 * max).toFixed(2) + 'deg');
+    el.style.setProperty('--rx', ((0.5 - y) * 2 * max).toFixed(2) + 'deg');
+    el.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+    el.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+  });
+  document.addEventListener('pointerout', (e) => {
+    const el = e.target.closest && e.target.closest(TILT);
+    if (el && !el.contains(e.relatedTarget)) { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); }
+  });
+}
