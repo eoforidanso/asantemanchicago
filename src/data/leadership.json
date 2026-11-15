@@ -19,10 +19,10 @@
     {"name": "Nana Kwasi Osei", "title": "Oyokohene", "photo": "Kwasi-osei.jpg"},
     {"name": "Baffour Agyei Ahenkan", "title": "Dwantoahene", "photo": "birs-dwanto.jpg"},
     {"name": "Baffour Yaw Amakye Badu", "title": "Ankobeahene", "photo": "Nana-Yaw-Amakye-Badu-1.jpg"},
-    {"name": "Nana Akwasi Agyekum", "title": "Nsumankwahene", "photo": "akwasi-agyekum.jpg"},
+    {"name": "Nana Akwasi Agyekum", "title": "Nsumankwahene", "photo": "birs-agyekum.jpg"},
     {"name": "Nana Kwabena Boakye Kaakyire", "title": "Mmrantɛhene", "photo": "Nana-Kwabena-Boakye-kaakyire-1-1.jpg"},
     {"name": "Barima Osei Kofi", "title": "Sompahene", "photo": "Barima-Osei.jpg"},
-    {"name": "Barimaba Akwasi Owusu Adoumi", "title": "Apagyahene", "photo": "akwasi-owusu-adoumi.jpg"},
+    {"name": "Barimaba Akwasi Owusu Adoumi", "title": "Apagyahene", "photo": "birs-adoumi.jpg"},
     {"name": "Oheneba Kofi Boakye", "title": "Abrafuohene", "photo": "birs-boakye.jpg"},
     {"name": "Nana Akwasi Dankwa", "title": "Okyeame", "photo": "akwasi-dankwa.jpg"}
   ],
@@ -30,8 +30,8 @@
   "exec-queens": [
     {"name": "Nana Akosua Ako Pomaa", "title": "Krontihemaa", "photo": "NANA-AKOSUA-AKO-POMAA.jpg"},
     {"name": "Ohemaa Abena Sarfowaa", "title": "Akwamuhemaa", "photo": "Ohemaa-Abena-Sarfowaa-.jpg"},
-    {"name": "Nana Abena Asantewaa", "title": "Kyidomhemaa", "photo": "Nana-Abena-Asantewaa.jpg"},
-    {"name": "Nana Darkowaa", "title": "Gyaasehemaa", "photo": "Nana-Darkowaa.jpg"},
+    {"name": "Nana Abena Asantewaa", "title": "Kyidomhemaa", "photo": "birs-asantewaa.jpg"},
+    {"name": "Nana Darkowaa", "title": "Gyaasehemaa", "photo": "birs-darkowaa.jpg"},
     {"name": "Nana Ama Obuor", "title": "Nifahemaa", "photo": "Nana-Ama-Obour.jpg"},
     {"name": "Nana Afrakoma Sika I", "title": "Oyokohemaa", "photo": "afrakoma-sika-1.jpg"},
     {"name": "Nana Obaa Yaa Achia", "title": "Nkosuohemaa", "photo": "obaa-yaa-achia.jpg"},
