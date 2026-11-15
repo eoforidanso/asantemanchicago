@@ -208,8 +208,9 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
 
 /* ==========================================================
    Hero slides: a slow crossfade between five photographs.
-   Pauses on hover and focus, has a visible pause button, does not
-   autoplay with reduced motion, and swipes on touch screens.
+   Keeps going while the pointer rests on it, pauses on keyboard focus,
+   has a visible Pause button, swaps without fading when the visitor
+   prefers reduced motion, and swipes on touch screens.
    ========================================================== */
 (() => {
   const root = document.getElementById('hr-slides');
@@ -239,7 +240,7 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
     cap.textContent = slides[cur].dataset.cap;
   }
   const stop = () => { clearInterval(timer); timer = null; };
-  const start = () => { if (reduce || paused || timer || document.hidden) return; timer = setInterval(() => go(cur + 1), 7000); };
+  const start = () => { if (paused || timer || document.hidden) return; timer = setInterval(() => go(cur + 1), 7000); };
   const restart = () => { stop(); start(); };
 
   pauseBtn.addEventListener('click', () => {
@@ -248,8 +249,6 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
     pauseBtn.setAttribute('aria-label', paused ? 'Play the slideshow' : 'Pause the slideshow');
     paused ? stop() : start();
   });
-  hero.addEventListener('mouseenter', stop);
-  hero.addEventListener('mouseleave', start);
   hero.addEventListener('focusin', stop);
   hero.addEventListener('focusout', start);
   document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
@@ -262,7 +261,7 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
   }, { passive: true });
 
   go(0);
-  if (reduce) pauseBtn.hidden = true;
+  if (reduce) root.classList.add('is-still'); // swap instantly instead of fading
   start();
 })();
 

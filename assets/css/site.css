@@ -1448,3 +1448,6 @@ p, li { hanging-punctuation: first; }
   .hero--royal { min-height: max(760px, calc(100svh - 64px)); }
   .impact-pair { top: 300px; height: 130px; }
 }
+
+/* Reduced motion: slides swap instantly rather than fading */
+.hr-slides.is-still .hr-slide { transition: none; }
