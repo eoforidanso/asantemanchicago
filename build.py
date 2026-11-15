@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAGES = ROOT / "src" / "pages"
-VERSION = "44"  # bump when CSS/JS change so browsers fetch the new files
+VERSION = "45"  # bump when CSS/JS change so browsers fetch the new files
 
 PHONE_DISPLAY = "(224) 334-6661"
 PHONE_TEL = "+12243346661"
@@ -71,7 +71,7 @@ def nav_html(active):
 
 # Licensed Canela: drop the web font files in assets/fonts/ (e.g. Canela-Regular.woff2,
 # Canela-RegularItalic.woff2, Canela-Light.woff2) and the site switches to Canela on the
-# next build. Until then headings fall back to Bodoni Moda.
+# next build. Until then headings fall back to Fraunces.
 CANELA_WEIGHTS = {"thin": 100, "light": 300, "regular": 400, "medium": 500, "bold": 700, "black": 900}
 
 
@@ -105,7 +105,7 @@ def head(meta):
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 {canela_css()}  <link rel="stylesheet" href="assets/css/site.css?v={VERSION}">
 </head>
 <body>

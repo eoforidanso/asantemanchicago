@@ -23,7 +23,7 @@
   --line: rgba(42, 32, 24, .14);
   --line-dark: rgba(242, 233, 216, .14);
 
-  --serif: "Canela", "Bodoni Moda", "Iowan Old Style", Georgia, serif;
+  --serif: "Canela", "Fraunces", "Iowan Old Style", Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --wrap: 1200px;
