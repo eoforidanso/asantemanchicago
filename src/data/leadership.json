@@ -2,8 +2,8 @@
   "_note": "Photos live in assets/img/people/. Each person: name, title (stool or office), photo. Order is display order.",
 
   "exec-stool": [
-    {"name": "Nana Kwame Frimpong Abayie", "title": "Chicago Asantefuohene", "photo": "../site/1.png"},
-    {"name": "Nana Afia Durowaa Nhyira", "title": "Chicago Asantefuohemaa", "photo": "Nana-Afia-Durowaah.jpg"}
+    {"name": "Nana Kwame Frimpong Abayie", "title": "Chicago Asantefuohene", "photo": "stool-asantefuohene.jpg"},
+    {"name": "Nana Afia Durowaa Nhyira", "title": "Chicago Asantefuohemaa", "photo": "stool-asantefuohemaa.jpg"}
   ],
 
   "exec-chiefs": [
