@@ -64,31 +64,31 @@
   ],
 
   "elders": [
-    {"name": "Nana Aboagye Manu", "title": "Chicago Asantefoɔ Abusuapanin", "photo": "nana-aboagye-manu.jpeg"},
-    {"name": "Abusuapanin Nana Yaw Asamoah", "title": "Council of Elders · Former Krontihene", "photo": "yaw-asamoah.jpeg"},
-    {"name": "Abusuapanin Nana Kofi Opoku (Joe Lee)", "title": "Council of Elders", "photo": "Kofi-Opoku.jpeg"},
+    {"name": "Nana Aboagye Manu", "title": "Chicago Asantefoɔ Abusuapanin", "photo": "studio-nana-aboagye-manu.jpg"},
+    {"name": "Abusuapanin Nana Yaw Asamoah", "title": "Council of Elders · Former Krontihene", "photo": "elder-yaw-asamoah.jpg"},
+    {"name": "Abusuapanin Nana Kofi Opoku (Joe Lee)", "title": "Council of Elders", "photo": "elder-kofi-opoku.jpg"},
     {"name": "Obaapanin Abena Achiaa", "title": "Council of Elders", "photo": "birs-achiaa.jpg"},
-    {"name": "Obaapanin Betty Ama Agyeman", "title": "Council of Elders", "photo": "betty-ama-agyeman.jpeg"},
-    {"name": "Obaapanin Sally Amoo-Gottfried Owusu", "title": "Council of Elders", "photo": "sally-owusu.jpeg"},
-    {"name": "Nana Antwi Boasiako", "title": "Council of Elders", "photo": "nana-antwi-boasiako.jpeg"},
-    {"name": "Obaapanin Nana Adwoa Afriyie Dwomoh", "title": "Council of Elders", "photo": "nana-adwo-afriyie-dwomoh.jpeg"},
-    {"name": "Nana Kwaku Duah II", "title": "Council of Elders", "photo": "nana-kwaku-duah-II.jpeg"}
+    {"name": "Obaapanin Betty Ama Agyeman", "title": "Council of Elders", "photo": "studio-obaapanin-betty-ama-agyeman.jpg"},
+    {"name": "Obaapanin Sally Amoo-Gottfried Owusu", "title": "Council of Elders", "photo": "elder-sally-owusu.jpg"},
+    {"name": "Nana Antwi Boasiako", "title": "Council of Elders", "photo": "studio-nana-antwi-boasiako.jpg"},
+    {"name": "Obaapanin Nana Adwoa Afriyie Dwomoh", "title": "Council of Elders", "photo": "elder-nana-adwo-afriyie-dwomoh.jpg"},
+    {"name": "Nana Kwaku Duah II", "title": "Council of Elders", "photo": "studio-nana-kwaku-duah-ii.jpg"}
   ],
 
   "royalty": [
-    {"name": "Nana Adututu Bofah", "title": "Akwamuhene of Atronie Traditional Council (Bono)", "photo": "nana-adututu-bofah.jpeg"},
-    {"name": "Nana Adjoa Boatemaa Nsutaman", "title": "Nkosuohemaa", "photo": "nana-adjoa-boatemaa.jpeg"},
-    {"name": "Nana Kwaku Baafi Antwi", "title": "Otumfuo Buabasa Aboafohene · Organizer for Pinanko Gyase Adikrofoɔ", "photo": "nana-kwaku.jpeg"},
-    {"name": "Nana Ampong Bosomprah", "title": "Otumfuo Bosompra", "photo": "nana-ampong-bosomprah.jpeg"},
-    {"name": "Nana Ohemaa Akosua Abuyaa Boaduwaa", "title": "Kumasi-Chrapatre Nahniso Hemaa", "photo": "nana-ohemaa-akosua-abuyaa.jpeg"},
-    {"name": "Nana Kwame Mensah", "title": "Asante Bogyawe Adontenhene", "photo": "nana-kwame-mensah.jpeg"}
+    {"name": "Nana Adututu Bofah", "title": "Akwamuhene of Atronie Traditional Council (Bono)", "photo": "studio-nana-adututu-bofah.jpg"},
+    {"name": "Nana Adjoa Boatemaa Nsutaman", "title": "Nkosuohemaa", "photo": "studio-nana-adjoa-boatemaa-nsutaman.jpg"},
+    {"name": "Nana Kwaku Baafi Antwi", "title": "Otumfuo Buabasa Aboafohene · Organizer for Pinanko Gyase Adikrofoɔ", "photo": "studio-nana-kwaku-baafi-antwi.jpg"},
+    {"name": "Nana Ampong Bosomprah", "title": "Otumfuo Bosompra", "photo": "studio-nana-ampong-bosomprah.jpg"},
+    {"name": "Nana Ohemaa Akosua Abuyaa Boaduwaa", "title": "Kumasi-Chrapatre Nahniso Hemaa", "photo": "studio-nana-ohemaa-akosua-abuyaa-boaduwaa.jpg"},
+    {"name": "Nana Kwame Mensah", "title": "Asante Bogyawe Adontenhene", "photo": "studio-nana-kwame-mensah.jpg"}
   ],
 
   "former": [
-    {"name": "Nana Addai Baffour", "title": "Former Chicago Asantefoɔhene", "photo": "nana-addai-baffour.jpg"},
-    {"name": "Ohemaa Abena Amponsah", "title": "Former Asantefoɔhemaa", "photo": "ohemaa-abena-amponsah.jpg"},
-    {"name": "Nana Yaw Barnieh Agyeman", "title": "Former Sanaahene", "photo": "nana-yaw-barnieh.jpg"},
-    {"name": "Nana Yaw Sarfo", "title": "Former Sanaahene", "photo": "nana-yaw-sarfo.jpg"},
+    {"name": "Nana Addai Baffour", "title": "Former Chicago Asantefoɔhene", "photo": "studio-nana-addai-baffour.jpg"},
+    {"name": "Ohemaa Abena Amponsah", "title": "Former Asantefoɔhemaa", "photo": "studio-ohemaa-abena-amponsah.jpg"},
+    {"name": "Nana Yaw Barnieh Agyeman", "title": "Former Sanaahene", "photo": "studio-nana-yaw-barnieh-agyeman.jpg"},
+    {"name": "Nana Yaw Sarfo", "title": "Former Sanaahene", "photo": "studio-nana-yaw-sarfo.jpg"},
     {"name": "Nana Aboagye Sadic Bosompem", "title": "Former Secretary", "photo": "nana-aboagye-sadic.jpg"}
   ]
 }
