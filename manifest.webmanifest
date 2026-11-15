@@ -1,0 +1,69 @@
+{
+  "name": "Asanteman Association of Chicago & Midwest",
+  "short_name": "Asanteman",
+  "description": "Asante culture, leadership and community in Chicago and the Midwest.",
+  "start_url": "./index.html?source=pwa",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#15100b",
+  "theme_color": "#15100b",
+  "categories": [
+    "lifestyle",
+    "social",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "assets/img/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Leadership",
+      "url": "./executive-team.html",
+      "icons": [
+        {
+          "src": "assets/img/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Gallery",
+      "url": "./media.html",
+      "icons": [
+        {
+          "src": "assets/img/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Join",
+      "url": "./membership.html",
+      "icons": [
+        {
+          "src": "assets/img/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
