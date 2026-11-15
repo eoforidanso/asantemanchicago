@@ -10,7 +10,7 @@
     {"name": "Daasebre Kwame", "title": "Akyeamehene", "photo": "Daasebre-Kwame.jpg"},
     {"name": "Daasebre Ohenebeng", "title": "Nifahene", "photo": "Daasebre-Ohenebeng-peprah-.jpg"},
     {"name": "Baffour Kofi Oduro", "title": "Krontihene", "photo": "birs-oduro.jpg"},
-    {"name": "Nana Kwabena Afriyie", "title": "Akwamuhene", "photo": "nana-kwabena-afriyie.jpg"},
+    {"name": "Nana Kwabena Afriyie", "title": "Akwamuhene", "photo": "akw-afriyie.jpg"},
     {"name": "Nana Yaw Afriyie Adede", "title": "Benkumhene", "photo": "birs-adade.jpg"},
     {"name": "Nana Kwabena Osei", "title": "Gyaasehene", "photo": "kwabena-osei.jpg"},
     {"name": "Nana Poku Boadi Yiadom", "title": "Adontenhene", "photo": "nana-poku-boadi-yiadom.jpg"},
@@ -29,7 +29,7 @@
 
   "exec-queens": [
     {"name": "Nana Akosua Ako Pomaa", "title": "Krontihemaa", "photo": "birs-akopomaa.jpg"},
-    {"name": "Ohemaa Abena Sarfowaa", "title": "Akwamuhemaa", "photo": "Ohemaa-Abena-Sarfowaa-.jpg"},
+    {"name": "Ohemaa Abena Sarfowaa", "title": "Akwamuhemaa", "photo": "akw-sarfowaa.jpg"},
     {"name": "Nana Adwoah Adjeiwaa Asantewaa Manu", "title": "Adontenhemaa", "photo": "mag-adjeiwaa.jpg"},
     {"name": "Nana Nyarko Abronoma", "title": "Benkumhemaa", "photo": "mag-abronoma.jpg"},
     {"name": "Nana Abena Asantewaa", "title": "Kyidomhemaa", "photo": "birs-asantewaa.jpg"},
