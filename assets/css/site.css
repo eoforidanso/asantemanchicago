@@ -987,8 +987,8 @@ h1, h2, h3 { letter-spacing: -.025em; }
 .page-hero--split h1 { font-size: clamp(40px, 5.2vw, 72px); max-width: 14ch; line-height: 1.04; }
 .page-hero--split .lede { max-width: 48ch; }
 .ph-mark { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.ph-mark::before { content: ""; position: absolute; left: -90px; top: 50%; width: 560px; height: 560px; transform: translateY(-50%); opacity: .07;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23e0b85a' stroke-width='3'%3E%3Ccircle cx='50' cy='50' r='46'/%3E%3Ccircle cx='50' cy='50' r='31'/%3E%3Ccircle cx='50' cy='50' r='16'/%3E%3C/svg%3E") center / contain no-repeat; }
+.ph-mark::before { content: ""; position: absolute; left: max(16px, calc(50% - 640px)); top: 50%; width: 440px; height: 518px; transform: translateY(-50%); opacity: .11;
+  background: url("../img/crest-mark.png") center / contain no-repeat; }
 .ph-duo { align-self: end; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; transform: translateY(var(--ov)); position: relative; z-index: 3; }
 .ph-duo figure { position: relative; margin: 0; aspect-ratio: 3 / 4.2; border-radius: 160px 160px 18px 18px; overflow: hidden; box-shadow: 0 30px 60px -24px rgba(0,0,0,.6), 0 0 0 1px rgba(224,184,90,.35); }
 .ph-duo figure:nth-child(2) { margin-top: 56px; }
@@ -1002,7 +1002,7 @@ h1, h2, h3 { letter-spacing: -.025em; }
   .ph-duo { max-width: 460px; margin-inline: auto; width: 100%; }
   .ph-duo figure { border-radius: 110px 110px 16px 16px; }
   .ph-duo figure:nth-child(2) { margin-top: 36px; }
-  .ph-mark::before { left: auto; right: -160px; width: 420px; height: 420px; top: 30%; }
+  .ph-mark::before { left: auto; right: -40px; width: 300px; height: 353px; top: 26%; }
 }
 
 /* ==========================================================
