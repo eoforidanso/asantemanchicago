@@ -63,7 +63,7 @@ if (siteHeader) {
 document.querySelectorAll('[data-stagger]').forEach((group) => {
   [...group.children].forEach((child, i) => {
     child.classList.add('reveal');
-    child.style.setProperty('--d', `${i * 90}ms`);
+    child.style.setProperty('--d', `${Math.min(i, 6) * 50}ms`);
     if (window.__io) window.__io.observe(child); else child.classList.add('in');
   });
 });
@@ -159,25 +159,6 @@ if (courtData && divsEl) {
     divsEl.appendChild(b);
   });
   render(0);
-}
-
-// 3D tilt + moving sheen (mouse devices only; delegated so injected cards work too)
-if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) {
-  const TILT = '.impact-card, .tier, .finder-card, .fact-card, .album, .hero-figure';
-  document.addEventListener('pointermove', (e) => {
-    const el = e.target.closest && e.target.closest(TILT);
-    if (!el) return;
-    const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-    const max = el.matches('.hero-figure') ? 5 : 7;
-    el.style.setProperty('--ry', ((x - 0.5) * 2 * max).toFixed(2) + 'deg');
-    el.style.setProperty('--rx', ((0.5 - y) * 2 * max).toFixed(2) + 'deg');
-    el.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
-    el.style.setProperty('--my', (y * 100).toFixed(1) + '%');
-  });
-  document.addEventListener('pointerout', (e) => {
-    const el = e.target.closest && e.target.closest(TILT);
-    if (el && !el.contains(e.relatedTarget)) { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); }
-  });
 }
 
 // Tabs (3D keys): click or arrow keys

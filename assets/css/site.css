@@ -1133,3 +1133,64 @@ h3 { line-height: 1.15; letter-spacing: -.012em; }
 .lede, .section-head p, .fs-copy p { max-width: 58ch; }
 p, li { hanging-punctuation: first; }
 .eyebrow { letter-spacing: .02em; }
+
+/* ==========================================================
+   Apple pass: one glass material, very little movement
+   ========================================================== */
+:root {
+  --mat-dark-bg: rgba(30, 23, 17, .52);
+  --mat-dark-line: rgba(255, 255, 255, .12);
+  --mat-light-bg: rgba(255, 255, 255, .55);
+  --mat-light-line: rgba(255, 255, 255, .7);
+  --mat-blur: blur(30px) saturate(180%);
+  --calm: cubic-bezier(.25, .1, .25, 1);
+}
+
+/* --- Movement: fades, not flights --- */
+.reveal { transform: none; translate: 0 8px; transition: opacity .6s var(--calm), translate .6s var(--calm); transition-delay: var(--d, 0ms); }
+.reveal.in { translate: 0 0; }
+@keyframes pop { from { opacity: 0; } to { opacity: 1; } }
+.finder-out.pop > *, .div-panel.swap .div-copy > *, .div-panel.swap .div-people > * { animation: pop .35s var(--calm) both; }
+.btn:hover { transform: none; }
+.shot:hover { transform: none; }
+.shot:hover img { transform: none; }
+@media (hover: hover) { .seat:hover .seat-frame { transform: translateY(-3px); } }
+/* no more 3D tilt or moving sheen anywhere */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .impact-card, .tier, .finder-card, .fact-card, .album, .hero-figure { transform: none; transform-style: flat; transition: opacity .6s var(--calm), translate .6s var(--calm), box-shadow .3s var(--calm); }
+  .impact-card::after, .tier::after, .finder-card::after, .fact-card::after, .album::after { display: none; }
+  .hero-figure img.medal, .hero-figure figcaption, .impact-body, .tier h2 { transform: none; }
+  .impact-card:hover, .tier:hover, .album:hover, .fact-card:hover { box-shadow: 0 18px 40px -20px rgba(0,0,0,.28); }
+}
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; translate: none; transition: none; } }
+
+/* --- Tabs: flat glass segments instead of rocking keycaps --- */
+.tabs3d, .divs { perspective: none; gap: 6px; padding: 6px; width: fit-content; max-width: 100%; border-radius: 999px; background: var(--mat-dark-bg); border: 1px solid var(--mat-dark-line); -webkit-backdrop-filter: var(--mat-blur); backdrop-filter: var(--mat-blur); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); margin-bottom: 18px; }
+.tabs3d button, .divs button { transform: none !important; border: 0; border-radius: 999px; background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; padding: 11px 18px; font: 500 14px/1 var(--sans); color: var(--on-dark-muted); transition: background-color .25s var(--calm), color .25s var(--calm); }
+.tabs3d button:hover, .divs button:hover { background: rgba(255,255,255,.08); color: var(--on-dark); }
+.tabs3d button[aria-selected="true"], .divs button[aria-selected="true"] { background: var(--gold); color: var(--ink); box-shadow: 0 4px 14px rgba(201,161,74,.25); }
+
+/* --- One glass material for dark surfaces --- */
+.site-header::before { background: rgba(21, 16, 11, .72); -webkit-backdrop-filter: var(--mat-blur); backdrop-filter: var(--mat-blur); }
+.nav-menu, .subnav, .hero-stats, .tabpanel, .finder-card, .lb-close, .lb-nav {
+  background: var(--mat-dark-bg); border: 1px solid var(--mat-dark-line);
+  -webkit-backdrop-filter: var(--mat-blur); backdrop-filter: var(--mat-blur);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 12px 32px rgba(0,0,0,.22);
+}
+.finder-card { background-color: rgba(30, 23, 17, .6); }
+.btn--ghost { background: rgba(255,255,255,.06); border-color: var(--mat-dark-line); -webkit-backdrop-filter: var(--mat-blur); backdrop-filter: var(--mat-blur); }
+.btn--ghost:hover { background: rgba(255,255,255,.12); }
+
+/* Hero portrait captions: a frosted plate floating on the photo */
+.ph-duo figcaption { inset: auto 10px 10px 10px; padding: 12px 10px 11px; border-radius: 14px; background: rgba(21, 16, 11, .38); border: 1px solid rgba(255,255,255,.14); -webkit-backdrop-filter: var(--mat-blur); backdrop-filter: var(--mat-blur); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); font-size: 14px; }
+
+/* --- Light surfaces --- */
+.impact-card, .tier:not(.tier--dark), .form-card, .clan {
+  background: var(--mat-light-bg); border: 1px solid var(--mat-light-line);
+  -webkit-backdrop-filter: var(--mat-blur); backdrop-filter: var(--mat-blur);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 12px 32px rgba(42,32,24,.08);
+}
+.hero-figure figcaption { background: rgba(245, 238, 224, .62); border: 1px solid var(--mat-light-line); -webkit-backdrop-filter: var(--mat-blur); backdrop-filter: var(--mat-blur); }
+/* Header: solid ink at rest, frosted glass only once content scrolls beneath it */
+.site-header:not(.scrolled)::before { background: var(--ink); }
+.site-header::before { transition: background-color .3s var(--calm); }
