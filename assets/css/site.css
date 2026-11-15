@@ -23,8 +23,8 @@
   --line: rgba(42, 32, 24, .14);
   --line-dark: rgba(242, 233, 216, .14);
 
-  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Canela", "Bodoni Moda", "Iowan Old Style", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --wrap: 1200px;
   --gutter: clamp(16px, 4vw, 40px);
@@ -50,7 +50,7 @@ h1, h2, h3, h4 {
   font-weight: 500;
   line-height: 1.1;
   margin: 0;
-  font-variation-settings: "SOFT" 30, "opsz" 96;
+  font-variation-settings: normal; /* let the optical size follow the type size */
   letter-spacing: -.01em;
   text-wrap: balance;
 }

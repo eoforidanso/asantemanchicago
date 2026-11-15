@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAGES = ROOT / "src" / "pages"
-VERSION = "34"  # bump when CSS/JS change so browsers fetch the new files
+VERSION = "35"  # bump when CSS/JS change so browsers fetch the new files
 
 PHONE_DISPLAY = "(224) 334-6661"
 PHONE_TEL = "+12243346661"
@@ -69,6 +69,23 @@ def nav_html(active):
     return "\n".join(out)
 
 
+# Licensed Canela: drop the web font files in assets/fonts/ (e.g. Canela-Regular.woff2,
+# Canela-RegularItalic.woff2, Canela-Light.woff2) and the site switches to Canela on the
+# next build. Until then headings fall back to Bodoni Moda.
+CANELA_WEIGHTS = {"thin": 100, "light": 300, "regular": 400, "medium": 500, "bold": 700, "black": 900}
+
+
+def canela_css():
+    rules = []
+    for f in sorted((ROOT / "assets/fonts").glob("Canela-*.woff2")):
+        style = f.stem.split("-", 1)[1].lower()
+        italic = style.endswith("italic")
+        weight = CANELA_WEIGHTS.get(style.replace("italic", "") or "regular", 400)
+        rules.append('@font-face { font-family: "Canela"; src: url("assets/fonts/%s") format("woff2"); font-weight: %d; font-style: %s; font-display: swap; }'
+                     % (f.name, weight, "italic" if italic else "normal"))
+    return ("  <style>" + " ".join(rules) + "</style>\n") if rules else ""
+
+
 def head(meta):
     title = meta["title"] if meta.get("bare_title") else f'{meta["title"]} · Asanteman Chicago & Midwest'
     return f"""<!doctype html>
@@ -81,8 +98,8 @@ def head(meta):
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v={VERSION}">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+{canela_css()}  <link rel="stylesheet" href="assets/css/site.css?v={VERSION}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
