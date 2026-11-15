@@ -1260,3 +1260,10 @@ p, li { hanging-punctuation: first; }
   .hr-stats .hero-stats > div { padding: 0 6px; }
   .hr-stats dd { font-size: 10.5px; letter-spacing: .02em; }
 }
+/* Hero refinements: more air under the headline, a quiet halo behind the copy */
+.hr-media { inset: 40px 0 0 0; }
+.hr-media img { object-position: 50% 14%; }
+.hero--royal .lede { color: rgba(250, 245, 236, .95); }
+.hr-bottom::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 46%; width: min(880px, 110%); height: 150%; transform: translate(-50%, -50%); pointer-events: none;
+  background: radial-gradient(closest-side, rgba(21,16,11,.55), rgba(21,16,11,.28) 55%, transparent 100%); }
+@media (max-width: 700px) { .hr-media { inset: 28px 0 0 0; } .hr-media img { object-position: 50% 18%; } }
