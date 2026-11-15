@@ -1015,3 +1015,49 @@ h1, h2, h3 { letter-spacing: -.025em; }
 .group-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--line) 16%, var(--gold) 50%, var(--line) 84%, transparent); }
 .group-head::before { content: ""; position: absolute; left: 50%; bottom: -4px; width: 9px; height: 9px; background: var(--gold); transform: translateX(-50%) rotate(45deg); box-shadow: 0 0 0 5px var(--paper); }
 @media (max-width: 560px) { .group-head h2 { letter-spacing: .1em; } .group-head { gap: 8px; padding-bottom: 28px; margin-bottom: 36px; } }
+
+/* ==========================================================
+   Portraits as a collection: no cards, larger portraits,
+   museum frame, quiet type, slow lift, editorial rhythm
+   ========================================================== */
+:root { --lift: cubic-bezier(.22, 1, .36, 1); }
+.court:not(.court--feature) { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(40px, 5vw, 64px) clamp(24px, 3.4vw, 48px); }
+.court:not(.court--feature) > .seat { flex: 0 1 calc((100% - 2 * clamp(24px, 3.4vw, 48px)) / 3); max-width: 340px; }
+.court:not(.court--feature) > .seat:first-child { flex-basis: 100%; max-width: none; padding-inline: max(0px, calc((100% - 380px) / 2)); }
+.court:not(.court--feature) > .seat:first-child h3 { font-size: clamp(30px, 3vw, 38px); }
+
+.seat, .div-people .seat { background: none; border: 0; padding: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: 0; }
+.seat-frame { margin-bottom: 24px; border-radius: 999px 999px 14px 14px; overflow: hidden; border: 1px solid rgba(0,0,0,.06); box-shadow: 0 20px 50px rgba(0,0,0,.08); transition: transform 600ms var(--lift), box-shadow 600ms var(--lift); }
+.seat-frame img { border-radius: 0; display: block; }
+.seat-frame::after { display: none; }
+.seat .stool-title { font: 600 11px/1.4 var(--sans); letter-spacing: .25em; text-transform: uppercase; }
+.seat .stool-title::before { content: ""; display: block; width: 28px; height: 1px; margin: 0 auto 14px; background: var(--gold); transition: width 600ms var(--lift), background-color 600ms var(--lift); }
+.seat h3 { font: 400 clamp(22px, 2.1vw, 28px)/1.18 var(--serif); margin-top: 12px; transition: color 600ms var(--lift); }
+.court--feature .seat h3 { font-size: clamp(26px, 2.6vw, 34px); }
+.dark .seat-frame, .cocoa .seat-frame { border-color: rgba(255,255,255,.08); box-shadow: 0 20px 50px rgba(0,0,0,.3); }
+
+@media (hover: hover) {
+  .seat:hover .seat-frame { transform: translateY(-8px); box-shadow: 0 34px 60px rgba(0,0,0,.14); }
+  .seat:hover .stool-title::before { width: 48px; background-color: var(--gold-bright); }
+  .seat:hover h3 { color: #fff; }
+  .section:not(.dark):not(.cocoa) .seat:hover h3 { color: #000; }
+}
+/* switch off the old tilt and sheen on portraits */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .seat { transform: none; box-shadow: none; }
+  .seat:hover { box-shadow: none; }
+  .seat::after { display: none; }
+  .seat h3, .seat .stool-title { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .seat-frame, .seat h3, .seat .stool-title::before { transition: none; } .seat:hover .seat-frame { transform: none; } }
+
+@media (max-width: 640px) {
+  .court:not(.court--feature) { gap: 36px 16px; }
+  .court:not(.court--feature) > .seat { flex-basis: calc(50% - 8px); }
+  .court:not(.court--feature) > .seat:first-child { flex-basis: 100%; max-width: none; padding-inline: max(0px, calc((100% - 250px) / 2)); }
+  .court:not(.court--feature) > .seat:first-child h3 { font-size: 26px; }
+  .seat-frame { margin-bottom: 18px; }
+  .seat .stool-title { font-size: 9.5px; letter-spacing: .18em; }
+  .seat .stool-title::before { margin-bottom: 10px; }
+  .seat h3 { font-size: 18px; margin-top: 8px; }
+}
