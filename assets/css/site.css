@@ -1004,3 +1004,14 @@ h1, h2, h3 { letter-spacing: -.025em; }
   .ph-duo figure:nth-child(2) { margin-top: 36px; }
   .ph-mark::before { left: auto; right: -160px; width: 420px; height: 420px; top: 30%; }
 }
+
+/* ==========================================================
+   Ceremonial group titles: centred capitals, Twi beneath,
+   hairline with a gold diamond
+   ========================================================== */
+.group-head { position: relative; flex-direction: column; align-items: center; text-align: center; gap: 12px; border-bottom: 0; padding-bottom: 34px; margin-bottom: 44px; }
+.group-head h2 { font: 400 clamp(26px, 3.3vw, 42px)/1.1 var(--serif); text-transform: uppercase; letter-spacing: .16em; }
+.group-head .twi { font: italic 400 clamp(18px, 2vw, 24px)/1.25 var(--serif); color: var(--gold-deep); }
+.group-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--line) 16%, var(--gold) 50%, var(--line) 84%, transparent); }
+.group-head::before { content: ""; position: absolute; left: 50%; bottom: -4px; width: 9px; height: 9px; background: var(--gold); transform: translateX(-50%) rotate(45deg); box-shadow: 0 0 0 5px var(--paper); }
+@media (max-width: 560px) { .group-head h2 { letter-spacing: .1em; } .group-head { gap: 8px; padding-bottom: 28px; margin-bottom: 36px; } }
