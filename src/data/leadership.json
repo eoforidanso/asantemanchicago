@@ -9,21 +9,21 @@
   "exec-chiefs": [
     {"name": "Daasebre Kwame", "title": "Akyeamehene", "photo": "Daasebre-Kwame.jpg"},
     {"name": "Daasebre Ohenebeng", "title": "Nifahene", "photo": "Daasebre-Ohenebeng-peprah-.jpg"},
-    {"name": "Baffour Kofi Oduro", "title": "Krontihene", "photo": "Baffour.jpg"},
+    {"name": "Baffour Kofi Oduro", "title": "Krontihene", "photo": "birs-oduro.jpg"},
     {"name": "Nana Kwabena Afriyie", "title": "Akwamuhene", "photo": "nana-kwabena-afriyie.jpg"},
-    {"name": "Nana Yaw Afriyie Adede", "title": "Benkumhene", "photo": "yaw-afriyie-adade.jpg"},
+    {"name": "Nana Yaw Afriyie Adede", "title": "Benkumhene", "photo": "birs-adade.jpg"},
     {"name": "Nana Kwabena Osei", "title": "Gyaasehene", "photo": "kwabena-osei.jpg"},
     {"name": "Nana Poku Boadi Yiadom", "title": "Adontenhene", "photo": "nana-poku-boadi-yiadom.jpg"},
-    {"name": "Oheneba Dwaben Boateng", "title": "Akyempim / Kyidomhene", "photo": "Oheneba-dwaben-boateng.jpg"},
-    {"name": "Nana Kusi Kyeremanteng", "title": "Manwerehene", "photo": "kusi-kyeremanteng.jpg"},
+    {"name": "Oheneba Dwaben Boateng", "title": "Akyempim / Kyidomhene", "photo": "birs-oheneba.jpg"},
+    {"name": "Nana Kusi Kyeremanteng", "title": "Manwerehene", "photo": "birs-kyere.jpg"},
     {"name": "Nana Kwasi Osei", "title": "Oyokohene", "photo": "Kwasi-osei.jpg"},
-    {"name": "Baffour Agyei Ahenkan", "title": "Dwantoahene", "photo": "baffour-agyei-ahenkan.jpg"},
+    {"name": "Baffour Agyei Ahenkan", "title": "Dwantoahene", "photo": "birs-dwanto.jpg"},
     {"name": "Baffour Yaw Amakye Badu", "title": "Ankobeahene", "photo": "Nana-Yaw-Amakye-Badu-1.jpg"},
     {"name": "Nana Akwasi Agyekum", "title": "Nsumankwahene", "photo": "akwasi-agyekum.jpg"},
     {"name": "Nana Kwabena Boakye Kaakyire", "title": "Mmrantɛhene", "photo": "Nana-Kwabena-Boakye-kaakyire-1-1.jpg"},
     {"name": "Barima Osei Kofi", "title": "Sompahene", "photo": "Barima-Osei.jpg"},
     {"name": "Barimaba Akwasi Owusu Adoumi", "title": "Apagyahene", "photo": "akwasi-owusu-adoumi.jpg"},
-    {"name": "Oheneba Kofi Boakye", "title": "Abrafuohene", "photo": "Oheneba-Kofi-Boakye.jpg"},
+    {"name": "Oheneba Kofi Boakye", "title": "Abrafuohene", "photo": "birs-boakye.jpg"},
     {"name": "Nana Akwasi Dankwa", "title": "Okyeame", "photo": "akwasi-dankwa.jpg"}
   ],
 
@@ -40,7 +40,7 @@
 
   "exec-officers": [
     {"name": "Nana Ama Serwaa", "title": "Welfare Director", "photo": "Ohemaa-Ama-Serwaa.jpg"},
-    {"name": "Mary Mensah Sogbe", "title": "Director of Operations", "photo": "mensah-sogbe.jpg"},
+    {"name": "Mary Mensah Sogbe", "title": "Director of Operations", "photo": "birs-mary.jpg"},
     {"name": "Obatanpa Akosua Serwaa Bonsu", "title": "Program Director / Women Organizer", "photo": "Akosua-Serwaa.jpg"},
     {"name": "Abena Bredu", "title": "Culture / Programming Coordinator", "photo": "abena-bredu.jpg"},
     {"name": "Mrs. Millicent Antwi Agyimang", "title": "Financial Secretary, Investment & Welfare", "photo": "Millicent-Antwi-Agyimang.jpg"},
