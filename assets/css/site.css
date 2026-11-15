@@ -1267,3 +1267,74 @@ p, li { hanging-punctuation: first; }
 .hr-bottom::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 46%; width: min(880px, 110%); height: 150%; transform: translate(-50%, -50%); pointer-events: none;
   background: radial-gradient(closest-side, rgba(21,16,11,.55), rgba(21,16,11,.28) 55%, transparent 100%); }
 @media (max-width: 700px) { .hr-media { inset: 28px 0 0 0; } .hr-media img { object-position: 50% 18%; } }
+
+/* ==========================================================
+   Story cards (homepage). Adapted from the Dear Osagyefo
+   letter cards: white card, fine gold border, 4:3 image,
+   category tag, serif title, a quiet crest signature, and a
+   "read" link whose gold underline draws in on hover.
+   Calmer than the original: titles and copy are clamped so
+   every card is the same height, the link sits on the card's
+   floor, and hover is a 3px lift with no image zoom.
+   ========================================================== */
+.stories-section { padding-top: 0; }
+.stories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.story {
+  display: flex; flex-direction: column;
+  background: #fffdf8; color: var(--text); text-decoration: none;
+  border: 1px solid rgba(201, 161, 74, .22); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(21,16,11,.04), 0 6px 18px rgba(21,16,11,.05);
+  transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s cubic-bezier(.2,.7,.2,1), border-color .5s ease;
+}
+.story:hover, .story:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(201, 161, 74, .5);
+  box-shadow: 0 2px 4px rgba(21,16,11,.05), 0 16px 40px rgba(21,16,11,.10);
+}
+.story-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--paper-2); border-bottom: 1px solid rgba(21,16,11,.07); }
+.story-media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.92) contrast(1.02); }
+.story-media::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(143,109,36,.06), transparent 40%, rgba(21,16,11,.16)); }
+/* A designed plate for stories without a photograph */
+.story-media--plate { display: grid; place-items: center; }
+.story-media--plate img { width: auto; height: 46%; object-fit: contain; filter: none; opacity: .9; }
+.story-media--plate[data-tone="gold"]  { background: radial-gradient(120% 90% at 50% 30%, #f6ead0, #e7d3a6); }
+.story-media--plate[data-tone="green"] { background: radial-gradient(120% 90% at 50% 30%, #e4ecdf, #c9d8c4); }
+.story-media--plate::after { background: none; }
+
+.story-body { position: relative; display: flex; flex-direction: column; flex: 1; padding: 26px 26px 22px; }
+.story-mark { position: absolute; top: 22px; right: 24px; width: 30px; height: auto; opacity: .55; }
+.story-tag {
+  align-self: flex-start; margin-bottom: 14px; padding: 5px 10px 4px; border-radius: 3px;
+  font: 600 11px/1.2 var(--sans); letter-spacing: .18em; text-transform: uppercase;
+  background: rgba(201,161,74,.14); color: var(--gold-deep);
+}
+.story-tag[data-tone="maroon"] { background: rgba(124,31,29,.09); color: var(--maroon); }
+.story-tag[data-tone="green"]  { background: rgba(29,90,58,.10); color: var(--green); }
+.story-tag[data-tone="ink"]    { background: rgba(21,16,11,.07); color: var(--text); }
+.story h3 {
+  margin: 0 40px 10px 0; font-family: var(--serif); font-weight: 400;
+  font-size: clamp(22px, 2vw, 26px); line-height: 1.2; letter-spacing: -.005em; color: var(--ink);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.story p {
+  margin: 0 0 18px; font-size: 15.5px; line-height: 1.6; color: var(--muted);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.story-cta {
+  margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(21,16,11,.07);
+  font: 600 14px/1 var(--sans); letter-spacing: .02em; color: var(--maroon);
+}
+.story-cta span { position: relative; display: inline-block; padding-bottom: 4px; }
+.story-cta span::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0;
+  background: linear-gradient(90deg, var(--maroon), var(--gold));
+  transition: width .4s cubic-bezier(.4,0,.2,1);
+}
+.story:hover .story-cta span::after, .story:focus-visible .story-cta span::after { width: 100%; }
+@media (max-width: 1100px) { .stories { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; } }
+@media (max-width: 620px) {
+  .stories { grid-template-columns: 1fr; gap: 18px; }
+  .story-body { padding: 22px 20px 18px; }
+}
+@media (prefers-reduced-motion: reduce) { .story, .story-cta span::after { transition: none; } .story:hover { transform: none; } }
