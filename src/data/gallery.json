@@ -158,5 +158,45 @@
   "th": 540,
   "lw": 1800,
   "lh": 1350
+ },
+ {
+  "meet": "01",
+  "alt": "A group of men in colourful outfits pose together in a hall",
+  "tw": 720,
+  "th": 480,
+  "lw": 1800,
+  "lh": 1200
+ },
+ {
+  "meet": "04",
+  "alt": "Two women smiling together, one in a yellow jacket and one in a blue patterned dress",
+  "tw": 720,
+  "th": 540,
+  "lw": 1800,
+  "lh": 1350
+ },
+ {
+  "meet": "06",
+  "alt": "Three women pose together at the gathering",
+  "tw": 720,
+  "th": 480,
+  "lw": 1800,
+  "lh": 1200
+ },
+ {
+  "meet": "07",
+  "alt": "A large group of members gathered on the hall floor in front of the stage",
+  "tw": 720,
+  "th": 480,
+  "lw": 1800,
+  "lh": 1200
+ },
+ {
+  "meet": "10",
+  "alt": "Two men posing together, one in a white top and a black hat and one in a yellow shirt",
+  "tw": 720,
+  "th": 576,
+  "lw": 1800,
+  "lh": 1440
  }
 ]
