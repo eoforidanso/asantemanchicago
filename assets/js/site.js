@@ -199,3 +199,23 @@ document.querySelectorAll('[data-tabs]').forEach((root) => {
   });
   show(0);
 });
+
+// Gallery lightbox
+const lb = document.getElementById('lightbox');
+if (lb) {
+  const shots = [...document.querySelectorAll('.shot')];
+  const img = lb.querySelector('img'), cap = lb.querySelector('figcaption');
+  let cur = 0;
+  const open = (i) => {
+    cur = (i + shots.length) % shots.length;
+    const s = shots[cur], t = s.querySelector('img');
+    img.src = s.dataset.large; img.alt = t.alt; cap.textContent = t.alt;
+    if (!lb.open) lb.showModal();
+  };
+  shots.forEach((s, i) => s.addEventListener('click', () => open(i)));
+  lb.querySelector('.lb-close').addEventListener('click', () => lb.close());
+  lb.querySelector('.lb-prev').addEventListener('click', () => open(cur - 1));
+  lb.querySelector('.lb-next').addEventListener('click', () => open(cur + 1));
+  lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+  lb.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') open(cur + 1); if (e.key === 'ArrowLeft') open(cur - 1); });
+}
