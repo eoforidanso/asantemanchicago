@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=47">
+  <link rel="stylesheet" href="assets/css/site.css?v=50">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -29,42 +29,68 @@
     </a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="index.html" aria-current="page">Home</a>
       <div class="nav-group">
-        <button type="button">About</button>
+        <button type="button">About us</button>
         <div class="nav-menu">
-          <a href="about.html">About AACM</a>
-          <a href="history.html">Our History</a>
-          <a href="the-asantes.html">The Asantes</a>
-          <a href="otumfuo-osei-tutu-ii.html">Otumfuo Osei Tutu II</a>
-        </div>
-      </div>
-      <div class="nav-group">
-        <button type="button">Leadership</button>
-        <div class="nav-menu">
-          <a href="executive-team.html">Executive Team</a>
+          <a href="history.html">History</a>
+          <a href="the-asantes.html">About the Asante Kingdom</a>
+          <a href="executive-team.html">Chiefs and queens</a>
           <a href="council-of-elders.html">Council of Elders</a>
-          <a href="enstooled-royalty.html">Enstooled Royalty (Ghana)</a>
-          <a href="former-executives.html">Past Asantefoɔ Executives</a>
+          <a href="manhyia-palace.html">Manhyia Palace</a>
+          <a href="executive-team.html#administrative">Administrative team</a>
         </div>
       </div>
-      <a href="projects.html">Programs</a>
-      <a href="inauguration.html">Events</a>
-      <a href="media.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-      <a class="btn btn--gold" href="membership.html">Join Today</a>
+      <a href="projects.html">Our work</a>
+      <div class="nav-group">
+        <button type="button">Get involved</button>
+        <div class="nav-menu">
+          <a href="get-involved.html">Ways to get involved</a>
+          <a href="membership.html">Membership &amp; FAQ</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="sponsorship.html">Development partnerships</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button type="button">Publications &amp; Events</button>
+        <div class="nav-menu">
+          <a href="media.html">Media</a>
+          <a href="events.html">Events</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact us</a>
+      <a class="btn btn--gold" href="membership-registration.html">Join Today</a>
     </nav>
   </div>
 </header>
+<a class="donate-tab" href="donate.html">Donate</a>
 
 <main id="main">
 
-  <!-- Hero: the court in state -->
-  <section class="hero hero--royal">
-    <picture class="hr-media">
-      <source media="(max-width: 700px)" srcset="assets/img/hero/court-phone.jpg">
-      <img src="assets/img/hero/court-2400.jpg" srcset="assets/img/hero/court-1400.jpg 1400w, assets/img/hero/court-2400.jpg 2400w" sizes="100vw" alt="The chiefs of Asanteman Chicago seated in state in kente cloth beneath a stained-glass arch" width="2400" height="1600" fetchpriority="high">
-    </picture>
+  <!-- Hero: five slides on heritage, our work and our impact -->
+  <section class="hero hero--royal" aria-roledescription="carousel" aria-label="Our heritage, our work and our impact">
+    <div class="hr-media hr-slides" id="hr-slides">
+      <figure class="hr-slide is-on" data-label="Heritage" data-cap="The chiefs of Asanteman Chicago at Akwasidae">
+        <picture>
+          <source media="(max-width: 700px)" srcset="assets/img/hero/court-phone.jpg">
+          <img src="assets/img/hero/court-2400.jpg" srcset="assets/img/hero/court-1400.jpg 1400w, assets/img/hero/court-2400.jpg 2400w" sizes="100vw" alt="The chiefs of Asanteman Chicago seated in state in kente cloth beneath a stained-glass arch" width="2400" height="1600" fetchpriority="high">
+        </picture>
+      </figure>
+      <figure class="hr-slide" data-label="Heritage" data-cap="The queen mothers, keepers of the line">
+        <img src="assets/img/hero/queens-1800.jpg" srcset="assets/img/hero/queens-1000.jpg 1000w, assets/img/hero/queens-1800.jpg 1800w" sizes="100vw" alt="Nine queen mothers seated together in kente and Adinkra cloth" width="1800" height="1200" loading="lazy" style="--pos: 50% 22%">
+      </figure>
+      <figure class="hr-slide" data-label="Our work" data-cap="Members and chiefs gathered before the stage">
+        <img src="assets/img/hero/gathering-1800.jpg" srcset="assets/img/hero/gathering-1000.jpg 1000w, assets/img/hero/gathering-1800.jpg 1800w" sizes="100vw" alt="Members and chiefs assembled before the stage at Akwasidae" width="1800" height="1200" loading="lazy" style="--pos: 50% 40%">
+      </figure>
+      <figure class="hr-slide" data-label="Our work" data-cap="Chiefs and elders in council at a community meeting">
+        <img src="assets/img/hero/meeting-1800.jpg" srcset="assets/img/hero/meeting-1000.jpg 1000w, assets/img/hero/meeting-1800.jpg 1800w" sizes="100vw" alt="Chiefs and elders seated together on a raised platform at an AACM meeting" width="1800" height="1084" loading="lazy" style="--pos: 50% 40%">
+      </figure>
+      <figure class="hr-slide hr-slide--impact" data-label="Our impact" data-cap="Hospital equipment and 5,000 books shipped to Kumasi">
+        <div class="impact-pair">
+          <img src="assets/img/site/aacm-donation-4-2.jpg" alt="A hospital bed labelled as donated by the Asanteman Association, Chicago" width="469" height="557" loading="lazy">
+          <img src="assets/img/site/book-donation.webp" alt="Stacks of books donated to the Ashanti Public Library" width="640" height="428" loading="lazy">
+        </div>
+      </figure>
+    </div>
     <div class="wrap hr-top">
       <div class="eyebrow"><span class="twi">Akwaaba</span> <span class="sep">·</span> One People, One Heritage, One Mission</div>
       <h1>Preserving our <em>heritage.</em><br>Building our future.</h1>
@@ -75,7 +101,11 @@
         <a class="btn btn--gold" href="membership.html">Join Our Community</a>
         <a class="btn btn--ghost" href="history.html">Explore Our Heritage</a>
       </div>
-      <p class="hr-credit">The chiefs of Asanteman Chicago at Akwasidae · BIR Studios</p>
+      <div class="hr-controls">
+        <p class="hr-credit"><span data-hr-label>Heritage</span><span class="sep"> · </span><span data-hr-cap>The chiefs of Asanteman Chicago at Akwasidae</span></p>
+        <div class="hr-dots" role="group" aria-label="Choose a slide"></div>
+        <button type="button" class="hr-pause" aria-label="Pause the slideshow">Pause</button>
+      </div>
     </div>
   </section>
   <div class="hr-stats">
@@ -173,60 +203,13 @@
     </div>
   </section>
 
-  <!-- Moments -->
-  <section class="section dark moments-wrap" style="padding-bottom:clamp(56px,8vw,112px)">
+
+  <!-- Our work -->
+  <section class="section dark work">
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <div class="eyebrow">Preserving Asante heritage</div>
-          <h2>Culture, in colour.</h2>
-        </div>
-        <p class="strip-hint"><a class="link-arrow" style="color:var(--on-dark)" href="media.html">See the full gallery</a></p>
-      </div>
-    </div>
-    <div class="moments" tabindex="0" aria-label="Photos from AACM gatherings">
-      <figure class="moment"><img src="assets/img/gallery/event-06-t.jpg" alt="A man in colourful kente cloth holds a microphone and speaks" loading="lazy"></figure>
-      <figure class="moment wide"><img src="assets/img/gallery/event-01-t.jpg" alt="Chiefs and elders seated together on a raised platform at an AACM meeting" loading="lazy"></figure>
-      <figure class="moment"><img src="assets/img/gallery/event-28-t.jpg" alt="A man in teal kente cloth standing full length" loading="lazy"></figure>
-      <figure class="moment wide"><img src="assets/img/gallery/event-18-t.jpg" alt="A man and a woman in kente cloth seated together" loading="lazy"></figure>
-      <figure class="moment"><img src="assets/img/gallery/event-31-t.jpg" alt="A man in colourful kente cloth speaks into a microphone" loading="lazy"></figure>
-      <figure class="moment wide"><img src="assets/img/gallery/event-26-t.jpg" alt="Chiefs seated on a step while a man in blue kente cloth stands" loading="lazy"></figure>
-    </div>
-  </section>
-
-  <!-- The court -->
-  <section class="section cocoa court-section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow"><span class="twi">Ahenfie</span> <span class="sep">·</span> The court</div>
-          <h2>Every stool has a name. Every name has a face.</h2>
-        </div>
-        <p>Asante divisions take their names from the army on the march. Choose a division to meet the people who hold it in Chicago.</p>
-      </div>
-      <div class="divs reveal" role="tablist" aria-label="Divisions of the court"></div>
-      <div class="div-panel" aria-live="polite"></div>
-      <p style="margin-top:36px"><a class="link-arrow" style="color:var(--on-dark)" href="executive-team.html">Meet the full executive team</a></p>
-    </div>
-  </section>
-  <script type="application/json" id="court-data">[{"key": "akwamu", "name": "Akwamu", "role": "The vanguard", "blurb": "The division that goes first.", "people": [{"name": "Nana Kwabena Afriyie", "title": "Akwamuhene", "photo": "assets/img/people/akw-afriyie.jpg"}, {"name": "Ohemaa Abena Sarfowaa", "title": "Akwamuhemaa", "photo": "assets/img/people/akw-sarfowaa.jpg"}]}, {"key": "adonten", "name": "Adonten", "role": "The main body", "blurb": "The centre of the formation.", "people": [{"name": "Nana Poku Boadi Yiadom", "title": "Adontenhene", "photo": "assets/img/people/div-adonten-yiadom.jpg"}, {"name": "Nana Adwoah Adjeiwaa Asantewaa Manu", "title": "Adontenhemaa", "photo": "assets/img/people/div-adonten-adjeiwaa.jpg"}]}, {"key": "nifa", "name": "Nifa", "role": "The right wing", "blurb": "The right hand of the stool.", "people": [{"name": "Daasebre Ohenebeng", "title": "Nifahene", "photo": "assets/img/people/div-nifa-ohenebeng.jpg"}, {"name": "Nana Ama Obuor", "title": "Nifahemaa", "photo": "assets/img/people/div-nifa-obuor.jpg"}]}, {"key": "benkum", "name": "Benkum", "role": "The left wing", "blurb": "The left hand of the stool.", "people": [{"name": "Nana Yaw Afriyie Adede", "title": "Benkumhene", "photo": "assets/img/people/birs-adade.jpg"}, {"name": "Nana Nyarko Abronoma", "title": "Benkumhemaa", "photo": "assets/img/people/mag-abronoma.jpg"}]}, {"key": "kyidom", "name": "Kyidom", "role": "The rear guard", "blurb": "The division that follows and protects.", "people": [{"name": "Oheneba Dwaben Boateng", "title": "Akyempim / Kyidomhene", "photo": "assets/img/people/birs-oheneba.jpg"}, {"name": "Nana Abena Asantewaa", "title": "Kyidomhemaa", "photo": "assets/img/people/birs-asantewaa.jpg"}]}, {"key": "gyaase", "name": "Gyaase", "role": "The household", "blurb": "The people closest to the stool.", "people": [{"name": "Nana Kwabena Osei", "title": "Gyaasehene", "photo": "assets/img/people/div-gyaase-kwabena-osei.jpg"}, {"name": "Nana Darkowaa", "title": "Gyaasehemaa", "photo": "assets/img/people/div-gyaase-darkowaa.jpg"}]}]</script>
-
-  <!-- Explore (tabs) -->
-  <section class="section dark explore">
-    <div class="wrap" data-tabs>
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Explore AACM</div>
-          <h2>Everything, one tap away.</h2>
-        </div>
-      </div>
-      <div class="tabs3d" role="tablist" aria-label="Explore AACM"><button type="button" role="tab" id="t-0" aria-controls="tp-0" aria-selected="true">What we do</button><button type="button" role="tab" id="t-1" aria-controls="tp-1" aria-selected="false">Impact</button><button type="button" role="tab" id="t-2" aria-controls="tp-2" aria-selected="false">The Asantehene</button><button type="button" role="tab" id="t-3" aria-controls="tp-3" aria-selected="false">Your day name</button><button type="button" role="tab" id="t-4" aria-controls="tp-4" aria-selected="false">Adinkra</button><button type="button" role="tab" id="t-5" aria-controls="tp-5" aria-selected="false">FAQ</button></div>
-      <div class="tabpanels">
-  <div class="tabpanel" role="tabpanel" id="tp-0" aria-labelledby="t-0">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">What We Do</div>
+          <div class="eyebrow">Our work</div>
           <h2>Serving Asanteman at home and abroad.</h2>
         </div>
         <p>Through cultural events, educational programs, and charitable initiatives, AACM brings people together to celebrate identity, build connections, and give back both locally and internationally.</p>
@@ -257,8 +240,79 @@
           <p>Creating opportunities for members to connect, learn, and grow professionally and socially.</p>
         </div>
       </div>
+      <div class="work-cta reveal">
+        <p>There is a place for you in this work.</p>
+        <div class="hero-cta">
+          <a class="btn btn--gold" href="get-involved.html">Get involved</a>
+          <a class="btn btn--ghost" href="projects.html">See our projects</a>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Upcoming events -->
+  <section class="section upcoming">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Coming up</div>
+          <h2>Upcoming events.</h2>
+        </div>
+        <p class="strip-hint"><a class="link-arrow" href="events.html">All events</a></p>
+      </div>
+      <div class="ev-empty"><p><b>New dates are on the way.</b> Subscribe to hear first, or write to <a href="mailto:info@chicagoasanteman.org">info@chicagoasanteman.org</a>.</p><form class="newsletter" data-mailto="info@chicagoasanteman.org" data-subject="Newsletter subscription"><label class="sr-only" for="ev-home-email">Email address</label><input type="email" id="ev-home-email" name="EMAIL" data-label="Email" placeholder="Your email address" required autocomplete="email"><button class="btn btn--gold" type="submit">Subscribe</button><p class="form-status" role="status">Your email app should open with your request, ready to send.</p></form></div>
+    </div>
+  </section>
+
+  <!-- Moments -->
+  <section class="section dark moments-wrap" style="padding-bottom:clamp(56px,8vw,112px)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Preserving Asante heritage</div>
+          <h2>Culture, in colour.</h2>
+        </div>
+        <p class="strip-hint"><a class="link-arrow" style="color:var(--on-dark)" href="media.html">See the full gallery</a></p>
+      </div>
+    </div>
+    <div class="moments" tabindex="0" aria-label="Photos from AACM gatherings">
+      <figure class="moment"><img src="assets/img/gallery/event-06-t.jpg" alt="A man in colourful kente cloth holds a microphone and speaks" loading="lazy"></figure>
+      <figure class="moment wide"><img src="assets/img/gallery/event-01-t.jpg" alt="Chiefs and elders seated together on a raised platform at an AACM meeting" loading="lazy"></figure>
+      <figure class="moment"><img src="assets/img/gallery/event-28-t.jpg" alt="A man in teal kente cloth standing full length" loading="lazy"></figure>
+      <figure class="moment wide"><img src="assets/img/gallery/event-18-t.jpg" alt="A man and a woman in kente cloth seated together" loading="lazy"></figure>
+      <figure class="moment"><img src="assets/img/gallery/event-31-t.jpg" alt="A man in colourful kente cloth speaks into a microphone" loading="lazy"></figure>
+      <figure class="moment wide"><img src="assets/img/gallery/event-26-t.jpg" alt="Chiefs seated on a step while a man in blue kente cloth stands" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- The court -->
+  <section class="section cocoa court-section" id="court">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow"><span class="twi">Ahenfie</span> <span class="sep">·</span> The court</div>
+          <h2>Every stool has a name. Every name has a face.</h2>
+        </div>
+        <p>Asante divisions take their names from the army on the march. Choose a division to meet the people who hold it in Chicago.</p>
+      </div>
+      <div class="divs reveal" role="tablist" aria-label="Divisions of the court"></div>
+      <div class="div-panel" aria-live="polite"></div>
+      <p style="margin-top:36px"><a class="link-arrow" style="color:var(--on-dark)" href="executive-team.html">Meet the full executive team</a></p>
+    </div>
+  </section>
+  <script type="application/json" id="court-data">[{"key": "akwamu", "name": "Akwamu", "role": "The vanguard", "blurb": "The division that goes first.", "people": [{"name": "Nana Kwabena Afriyie", "title": "Akwamuhene", "photo": "assets/img/people/akw-afriyie.jpg"}, {"name": "Ohemaa Abena Sarfowaa", "title": "Akwamuhemaa", "photo": "assets/img/people/akw-sarfowaa.jpg"}]}, {"key": "adonten", "name": "Adonten", "role": "The main body", "blurb": "The centre of the formation.", "people": [{"name": "Nana Poku Boadi Yiadom", "title": "Adontenhene", "photo": "assets/img/people/div-adonten-yiadom.jpg"}, {"name": "Nana Adwoah Adjeiwaa Asantewaa Manu", "title": "Adontenhemaa", "photo": "assets/img/people/div-adonten-adjeiwaa.jpg"}]}, {"key": "nifa", "name": "Nifa", "role": "The right wing", "blurb": "The right hand of the stool.", "people": [{"name": "Daasebre Ohenebeng", "title": "Nifahene", "photo": "assets/img/people/div-nifa-ohenebeng.jpg"}, {"name": "Nana Ama Obuor", "title": "Nifahemaa", "photo": "assets/img/people/div-nifa-obuor.jpg"}]}, {"key": "benkum", "name": "Benkum", "role": "The left wing", "blurb": "The left hand of the stool.", "people": [{"name": "Nana Yaw Afriyie Adede", "title": "Benkumhene", "photo": "assets/img/people/birs-adade.jpg"}, {"name": "Nana Nyarko Abronoma", "title": "Benkumhemaa", "photo": "assets/img/people/mag-abronoma.jpg"}]}, {"key": "kyidom", "name": "Kyidom", "role": "The rear guard", "blurb": "The division that follows and protects.", "people": [{"name": "Oheneba Dwaben Boateng", "title": "Akyempim / Kyidomhene", "photo": "assets/img/people/birs-oheneba.jpg"}, {"name": "Nana Abena Asantewaa", "title": "Kyidomhemaa", "photo": "assets/img/people/birs-asantewaa.jpg"}]}, {"key": "gyaase", "name": "Gyaase", "role": "The household", "blurb": "The people closest to the stool.", "people": [{"name": "Nana Kwabena Osei", "title": "Gyaasehene", "photo": "assets/img/people/div-gyaase-kwabena-osei.jpg"}, {"name": "Nana Darkowaa", "title": "Gyaasehemaa", "photo": "assets/img/people/div-gyaase-darkowaa.jpg"}]}]</script>
+
+  <!-- Explore (tabs) -->
+  <section class="section dark explore">
+    <div class="wrap" data-tabs>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Explore AACM</div>
+          <h2>Everything, one tap away.</h2>
+        </div>
+      </div>
+      <div class="tabs3d" role="tablist" aria-label="Explore AACM"><button type="button" role="tab" id="t-1" aria-controls="tp-1" aria-selected="false">Impact</button><button type="button" role="tab" id="t-2" aria-controls="tp-2" aria-selected="false">The Asantehene</button><button type="button" role="tab" id="t-3" aria-controls="tp-3" aria-selected="false">Your day name</button><button type="button" role="tab" id="t-4" aria-controls="tp-4" aria-selected="false">Adinkra</button><button type="button" role="tab" id="t-5" aria-controls="tp-5" aria-selected="false">FAQ</button></div>
+      <div class="tabpanels">
   <div class="tabpanel" role="tabpanel" id="tp-1" aria-labelledby="t-1" hidden>
     <div class="wrap">
       <div class="section-head">
@@ -384,6 +438,23 @@
     </div>
   </section>
 
+
+  <!-- Newsletter -->
+  <section class="section section--tint news-band">
+    <div class="wrap split">
+      <div class="reveal">
+        <div class="eyebrow">Newsletter</div>
+        <h2>Stay close to the court.</h2>
+        <p class="lede">Events, news and stories from the Asanteman Association of Chicago &amp; Midwest, sent to your inbox.</p>
+      </div>
+      <div class="reveal">
+        <form class="newsletter" data-mailto="info@chicagoasanteman.org" data-subject="Newsletter subscription"><label class="sr-only" for="pg-email">Email address</label><input type="email" id="pg-email" name="EMAIL" data-label="Email" placeholder="Your email address" required autocomplete="email"><button class="btn btn--gold" type="submit">Subscribe</button><p class="form-status" role="status">Your email app should open with your request, ready to send.</p></form>
+        <p class="eyebrow" style="margin-top:30px">Follow us</p>
+        <div class="social"><a href="https://www.facebook.com/asantemanchicago" rel="noopener" target="_blank" aria-label="AACM on Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.youtube.com/@AsantemanChicago" rel="noopener" target="_blank" aria-label="AACM on YouTube"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <div class="kente kente--thin" role="presentation"></div>
   <section class="section dark cta">
@@ -402,7 +473,7 @@
 
 <footer class="site-footer">
   <div class="kente kente--thin" role="presentation"></div>
-  <div class="wrap">
+  <div class="wrap footer-cols">
     <div>
       <a class="brand" href="index.html">
         <img src="assets/img/logo.png" alt="" width="36" height="44">
@@ -410,25 +481,28 @@
       </a>
       <p class="motto">One People, One Heritage, One Mission.</p>
       <p>A tax-exempt 501(c)(3) non-profit organization.</p>
+      <div class="social"><a href="https://www.facebook.com/asantemanchicago" rel="noopener" target="_blank" aria-label="AACM on Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.youtube.com/@AsantemanChicago" rel="noopener" target="_blank" aria-label="AACM on YouTube"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div>
     </div>
     <div>
-      <h4>Association</h4>
+      <h4>About us</h4>
       <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="membership.html">Membership</a></li>
-        <li><a href="executive-team.html">Leadership</a></li>
-        <li><a href="inauguration.html">Events</a></li>
-        <li><a href="volunteer.html">Get Involved</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="the-asantes.html">About the Asante Kingdom</a></li>
+        <li><a href="executive-team.html">Chiefs and queens</a></li>
+        <li><a href="council-of-elders.html">Council of Elders</a></li>
+        <li><a href="manhyia-palace.html">Manhyia Palace</a></li>
+        <li><a href="executive-team.html#administrative">Administrative team</a></li>
       </ul>
     </div>
     <div>
-      <h4>Heritage</h4>
+      <h4>Take part</h4>
       <ul>
-        <li><a href="history.html">Our History</a></li>
-        <li><a href="the-asantes.html">The Asantes</a></li>
-        <li><a href="otumfuo-osei-tutu-ii.html">Otumfuo Osei Tutu II</a></li>
-        <li><a href="projects.html">Programs</a></li>
-        <li><a href="media.html">Gallery</a></li>
+        <li><a href="projects.html">Our work</a></li>
+        <li><a href="get-involved.html">Get involved</a></li>
+        <li><a href="membership.html">Membership &amp; FAQ</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="donate.html">Donate</a></li>
       </ul>
     </div>
     <div>
@@ -448,6 +522,16 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=47"></script>
+<dialog class="exit-pop" id="exit-pop" aria-labelledby="exit-title">
+  <button type="button" class="exit-close" aria-label="Close">×</button>
+  <img src="assets/img/crest-mark.png" alt="" width="44" height="52">
+  <div class="eyebrow">Before you go</div>
+  <h2 id="exit-title">Stay close to the court.</h2>
+  <p>Events, news and stories from the Asanteman Association of Chicago &amp; Midwest, sent to your inbox.</p>
+  <form class="newsletter" data-mailto="info@chicagoasanteman.org" data-subject="Newsletter subscription"><label class="sr-only" for="exit-email">Email address</label><input type="email" id="exit-email" name="EMAIL" data-label="Email" placeholder="Your email address" required autocomplete="email"><button class="btn btn--gold" type="submit">Subscribe</button><p class="form-status" role="status">Your email app should open with your request, ready to send.</p></form>
+  <button type="button" class="exit-skip">No thanks</button>
+</dialog>
+
+<script src="assets/js/site.js?v=50"></script>
 </body>
 </html>

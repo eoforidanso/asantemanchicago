@@ -205,3 +205,89 @@ if (lb) {
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
   window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
 }
+
+/* ==========================================================
+   Hero slides: a slow crossfade between five photographs.
+   Pauses on hover and focus, has a visible pause button, does not
+   autoplay with reduced motion, and swipes on touch screens.
+   ========================================================== */
+(() => {
+  const root = document.getElementById('hr-slides');
+  if (!root) return;
+  const slides = [...root.querySelectorAll('.hr-slide')];
+  const dotsEl = document.querySelector('.hr-dots');
+  const lab = document.querySelector('[data-hr-label]');
+  const cap = document.querySelector('[data-hr-cap]');
+  const pauseBtn = document.querySelector('.hr-pause');
+  const hero = root.closest('.hero');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let cur = 0, timer = null, paused = false;
+
+  const dots = slides.map((s, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Slide ${i + 1} of ${slides.length}: ${s.dataset.label}, ${s.dataset.cap}`);
+    b.addEventListener('click', () => { go(i); restart(); });
+    dotsEl.appendChild(b);
+    return b;
+  });
+  function go(i) {
+    cur = (i + slides.length) % slides.length;
+    slides.forEach((s, j) => { s.classList.toggle('is-on', j === cur); s.setAttribute('aria-hidden', String(j !== cur)); });
+    dots.forEach((d, j) => d.setAttribute('aria-current', String(j === cur)));
+    lab.textContent = slides[cur].dataset.label;
+    cap.textContent = slides[cur].dataset.cap;
+  }
+  const stop = () => { clearInterval(timer); timer = null; };
+  const start = () => { if (reduce || paused || timer || document.hidden) return; timer = setInterval(() => go(cur + 1), 7000); };
+  const restart = () => { stop(); start(); };
+
+  pauseBtn.addEventListener('click', () => {
+    paused = !paused;
+    pauseBtn.textContent = paused ? 'Play' : 'Pause';
+    pauseBtn.setAttribute('aria-label', paused ? 'Play the slideshow' : 'Pause the slideshow');
+    paused ? stop() : start();
+  });
+  hero.addEventListener('mouseenter', stop);
+  hero.addEventListener('mouseleave', start);
+  hero.addEventListener('focusin', stop);
+  hero.addEventListener('focusout', start);
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  let x0 = null;
+  hero.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  hero.addEventListener('touchend', (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) { go(cur + (dx < 0 ? 1 : -1)); restart(); }
+  }, { passive: true });
+
+  go(0);
+  if (reduce) pauseBtn.hidden = true;
+  start();
+})();
+
+/* Newsletter forms that post to a service (not the email-app fallback) */
+document.querySelectorAll('form.newsletter:not([data-mailto])').forEach((f) => {
+  f.addEventListener('submit', () => f.querySelector('.form-status')?.classList.add('show'));
+});
+
+/* Exit pop-up: desktop only, once per 30 days, never in the first 10 seconds,
+   never on forms or the donate page, and never again after subscribing. */
+(() => {
+  const pop = document.getElementById('exit-pop');
+  if (!pop || document.body.hasAttribute('data-noexit') || typeof pop.showModal !== 'function') return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const KEY = 'aacm-exit-until';
+  const remember = (days) => { try { localStorage.setItem(KEY, String(Date.now() + days * 864e5)); } catch (e) {} };
+  try { if (Number(localStorage.getItem(KEY)) > Date.now()) return; } catch (e) {}
+  const born = Date.now();
+  let shown = false;
+  document.addEventListener('mouseout', (e) => {
+    if (shown || e.relatedTarget || e.clientY > 0) return;
+    if (Date.now() - born < 10000 || document.querySelector('dialog[open]')) return;
+    shown = true; pop.showModal(); remember(30);
+  });
+  pop.querySelectorAll('.exit-close, .exit-skip').forEach((b) => b.addEventListener('click', () => pop.close()));
+  pop.addEventListener('click', (e) => { if (e.target === pop) pop.close(); });
+  pop.querySelector('form')?.addEventListener('submit', () => { remember(365); setTimeout(() => pop.close(), 2200); });
+})();

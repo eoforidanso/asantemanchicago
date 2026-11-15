@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAGES = ROOT / "src" / "pages"
-VERSION = "47"  # bump when CSS/JS change so browsers fetch the new files
+VERSION = "50"  # bump when CSS/JS change so browsers fetch the new files
 
 PHONE_DISPLAY = "(224) 334-6661"
 PHONE_TEL = "+12243346661"
@@ -26,46 +26,58 @@ EMAIL = "info@chicagoasanteman.org"
 ADDRESS = "11070 S Western Ave, Chicago, IL 60643"
 MAP_URL = "https://maps.app.goo.gl/mmgueGGtTuZAeEiD7"
 
+# Fill these in when AACM opens the accounts. Until then the Donate page says online
+# giving is opening soon, and the newsletter forms open the visitor's email app.
+DONATE_URL = ""          # e.g. a Zeffy / PayPal / Stripe donation link
+MAILCHIMP_ACTION = ""    # the "action" URL from a Mailchimp embedded signup form
+FACEBOOK_URL = "https://www.facebook.com/asantemanchicago"
+YOUTUBE_URL = "https://www.youtube.com/@AsantemanChicago"
+
 LOGO = '<img src="assets/img/logo.png" alt="" width="36" height="44">'
 
 # (key, label, href) or (group-key, label, [(key, label, href), ...])
 NAV = [
-    ("home", "Home", "index.html"),
-    ("about", "About", [
-        ("about", "About AACM", "about.html"),
-        ("history", "Our History", "history.html"),
-        ("asantes", "The Asantes", "the-asantes.html"),
-        ("otumfuo", "Otumfuo Osei Tutu II", "otumfuo-osei-tutu-ii.html"),
-    ]),
-    ("leadership", "Leadership", [
-        ("executive", "Executive Team", "executive-team.html"),
+    ("about", "About us", [
+        ("history", "History", "history.html"),
+        ("asantes", "About the Asante Kingdom", "the-asantes.html"),
+        ("executive", "Chiefs and queens", "executive-team.html"),
         ("elders", "Council of Elders", "council-of-elders.html"),
-        ("royalty", "Enstooled Royalty (Ghana)", "enstooled-royalty.html"),
-        ("former", "Past Asantefoɔ Executives", "former-executives.html"),
+        ("manhyia", "Manhyia Palace", "manhyia-palace.html"),
+        ("admin", "Administrative team", "executive-team.html#administrative"),
     ]),
-    ("projects", "Programs", "projects.html"),
-    ("inauguration", "Events", "inauguration.html"),
-    ("media", "Gallery", "media.html"),
-    ("contact", "Contact", "contact.html"),
+    ("projects", "Our work", "projects.html"),
+    ("involved-group", "Get involved", [
+        ("involved", "Ways to get involved", "get-involved.html"),
+        ("membership", "Membership & FAQ", "membership.html"),
+        ("volunteer", "Volunteer", "volunteer.html"),
+        ("sponsorship", "Development partnerships", "sponsorship.html"),
+    ]),
+    ("pubs", "Publications & Events", [
+        ("media", "Media", "media.html"),
+        ("events", "Events", "events.html"),
+    ]),
+    ("contact", "Contact us", "contact.html"),
 ]
+# Pages that live inside a menu group without being a menu item themselves
+GROUP_EXTRA = {"about": {"royalty", "former", "otumfuo", "about"}, "pubs": {"inauguration"}, "involved-group": {"membership-registration"}}
 
 
 def nav_html(active):
     out = []
     for key, label, target in NAV:
         if isinstance(target, list):
-            in_group = any(k == active for k, _, _ in target)
+            in_group = any(k == active for k, _, _ in target) or active in GROUP_EXTRA.get(key, ())
             cur_attr = ' aria-current="page"'
             items = "\n".join(
-                f'          <a href="{h}"{cur_attr if k == active else ""}>{l}</a>'
+                f'          <a href="{h}"{cur_attr if k == active else ""}>{l.replace("&", "&amp;")}</a>'
                 for k, l, h in target)
             cls = ' class="is-active"' if in_group else ""
-            out.append(f'      <div class="nav-group">\n        <button type="button"{cls}>{label}</button>\n'
+            out.append(f'      <div class="nav-group">\n        <button type="button"{cls}>{label.replace("&", "&amp;")}</button>\n'
                        f'        <div class="nav-menu">\n{items}\n        </div>\n      </div>')
         else:
             cur = ' aria-current="page"' if key == active else ""
-            out.append(f'      <a href="{target}"{cur}>{label}</a>')
-    out.append('      <a class="btn btn--gold" href="membership.html">Join Today</a>')
+            out.append(f'      <a href="{target}"{cur}>{label.replace("&", "&amp;")}</a>')
+    out.append('      <a class="btn btn--gold" href="membership-registration.html">Join Today</a>')
     return "\n".join(out)
 
 
@@ -87,6 +99,7 @@ def canela_css():
 
 
 def head(meta):
+    body_attr = ' data-noexit' if meta.get("noexit") else ""
     title = meta["title"] if meta.get("bare_title") else f'{meta["title"]} · Asanteman Chicago & Midwest'
     return f"""<!doctype html>
 <html lang="en">
@@ -108,7 +121,7 @@ def head(meta):
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 {canela_css()}  <link rel="stylesheet" href="assets/css/site.css?v={VERSION}">
 </head>
-<body>
+<body{body_attr}>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
@@ -123,17 +136,54 @@ def head(meta):
     </nav>
   </div>
 </header>
+<a class="donate-tab" href="donate.html">Donate</a>
 
 <main id="main">
 """
 
 
-def foot():
+SOCIAL_SVG = {
+    "facebook": '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+    "youtube": '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+}
+
+
+def social_html():
+    return (f'<div class="social">'
+            f'<a href="{FACEBOOK_URL}" rel="noopener" target="_blank" aria-label="AACM on Facebook">{SOCIAL_SVG["facebook"]}</a>'
+            f'<a href="{YOUTUBE_URL}" rel="noopener" target="_blank" aria-label="AACM on YouTube">{SOCIAL_SVG["youtube"]}</a>'
+            f'</div>')
+
+
+def newsletter(idp="nl"):
+    """Email signup. Posts to Mailchimp once MAILCHIMP_ACTION is set; until then it opens the visitor's email app."""
+    if MAILCHIMP_ACTION:
+        attrs = f'action="{MAILCHIMP_ACTION}" method="post" target="_blank" novalidate'
+        note = "Thank you. Please confirm your subscription in the tab that just opened."
+    else:
+        attrs = f'data-mailto="{EMAIL}" data-subject="Newsletter subscription"'
+        note = "Your email app should open with your request, ready to send."
+    return (f'<form class="newsletter" {attrs}>'
+            f'<label class="sr-only" for="{idp}-email">Email address</label>'
+            f'<input type="email" id="{idp}-email" name="EMAIL" data-label="Email" placeholder="Your email address" required autocomplete="email">'
+            f'<button class="btn btn--gold" type="submit">Subscribe</button>'
+            f'<p class="form-status" role="status">{note}</p></form>')
+
+
+def foot(show_news=True):
+    news = f"""  <div class="wrap footer-news">
+    <div>
+      <h4>Newsletter</h4>
+      <p class="fn-lede">News, events and stories from the Asanteman Association of Chicago &amp; Midwest.</p>
+    </div>
+    {newsletter("foot")}
+  </div>
+""" if show_news else ""
     return f"""</main>
 
 <footer class="site-footer">
   <div class="kente kente--thin" role="presentation"></div>
-  <div class="wrap">
+{news}  <div class="wrap footer-cols">
     <div>
       <a class="brand" href="index.html">
         {LOGO}
@@ -141,25 +191,28 @@ def foot():
       </a>
       <p class="motto">One People, One Heritage, One Mission.</p>
       <p>A tax-exempt 501(c)(3) non-profit organization.</p>
+      {social_html()}
     </div>
     <div>
-      <h4>Association</h4>
+      <h4>About us</h4>
       <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="membership.html">Membership</a></li>
-        <li><a href="executive-team.html">Leadership</a></li>
-        <li><a href="inauguration.html">Events</a></li>
-        <li><a href="volunteer.html">Get Involved</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="the-asantes.html">About the Asante Kingdom</a></li>
+        <li><a href="executive-team.html">Chiefs and queens</a></li>
+        <li><a href="council-of-elders.html">Council of Elders</a></li>
+        <li><a href="manhyia-palace.html">Manhyia Palace</a></li>
+        <li><a href="executive-team.html#administrative">Administrative team</a></li>
       </ul>
     </div>
     <div>
-      <h4>Heritage</h4>
+      <h4>Take part</h4>
       <ul>
-        <li><a href="history.html">Our History</a></li>
-        <li><a href="the-asantes.html">The Asantes</a></li>
-        <li><a href="otumfuo-osei-tutu-ii.html">Otumfuo Osei Tutu II</a></li>
-        <li><a href="projects.html">Programs</a></li>
-        <li><a href="media.html">Gallery</a></li>
+        <li><a href="projects.html">Our work</a></li>
+        <li><a href="get-involved.html">Get involved</a></li>
+        <li><a href="membership.html">Membership &amp; FAQ</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="donate.html">Donate</a></li>
       </ul>
     </div>
     <div>
@@ -179,10 +232,60 @@ def foot():
   </div>
 </footer>
 
+<dialog class="exit-pop" id="exit-pop" aria-labelledby="exit-title">
+  <button type="button" class="exit-close" aria-label="Close">×</button>
+  <img src="assets/img/crest-mark.png" alt="" width="44" height="52">
+  <div class="eyebrow">Before you go</div>
+  <h2 id="exit-title">Stay close to the court.</h2>
+  <p>Events, news and stories from the Asanteman Association of Chicago &amp; Midwest, sent to your inbox.</p>
+  {newsletter("exit")}
+  <button type="button" class="exit-skip">No thanks</button>
+</dialog>
+
 <script src="assets/js/site.js?v={VERSION}"></script>
 </body>
 </html>
 """
+
+
+# ---------- events (src/data/events.json) ----------
+EVENTS = json.loads((ROOT / "src/data/events.json").read_text())
+MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def event_card(e, past=False):
+    d = e.get("date", "")
+    m = re.match(r"(\d{4})-(\d{2})-(\d{2})", d)
+    day, mon = (str(int(m.group(3))), MONTHS[int(m.group(2)) - 1]) if m else ("", "")
+    badge = f'<div class="ev-date"><b>{day}</b><span>{mon}</span></div>' if m else ""
+    href = e.get("href")
+    cta = f'<a class="link-arrow" href="{html.escape(href)}">{html.escape(e.get("cta", "Details"))}</a>' if href else ""
+    when = html.escape(e.get("when", ""))
+    place = html.escape(e.get("place", ""))
+    meta = " · ".join(x for x in (when, place) if x)
+    return (f'<article class="ev{" ev--past" if past else ""}">{badge}<div class="ev-body">'
+            f'<h3>{html.escape(e["title"])}</h3>'
+            f'{"<p class=ev-meta>" + meta + "</p>" if meta else ""}'
+            f'{"<p>" + html.escape(e["blurb"]) + "</p>" if e.get("blurb") else ""}{cta}</div></article>')
+
+
+def events_block(kind):
+    up = EVENTS.get("upcoming", [])
+    if up:
+        return '<div class="evs">' + "".join(event_card(e) for e in up) + "</div>"
+    return ('<div class="ev-empty"><p><b>New dates are on the way.</b> Subscribe to hear first, or write to '
+            f'<a href="mailto:{EMAIL}">{EMAIL}</a>.</p>{newsletter("ev-" + kind)}</div>')
+
+
+def donate_block():
+    if DONATE_URL:
+        return f'<p><a class="btn btn--gold" href="{DONATE_URL}" rel="noopener">Give now</a></p>'
+    return ('<div class="notice"><b>Online giving opens soon.</b> Until then, to give or to ask how a gift is used, '
+            f'write to <a href="mailto:{EMAIL}">{EMAIL}</a> or call <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>.</div>')
+
+
+def events_recent():
+    return '<div class="evs">' + "".join(event_card(e, True) for e in EVENTS.get("recent", [])) + "</div>"
 
 
 LEADERSHIP = json.loads((ROOT / "src/data/leadership.json").read_text())
@@ -344,9 +447,12 @@ def build():
             raise SystemExit(f"{src.name}: first line must be a <!--meta {{...}} --> comment")
         meta = json.loads(m.group(1))
         body = text[m.end():]
+        body = body.replace("<!--newsletter-->", newsletter("pg")).replace("<!--social-->", social_html())
+        body = body.replace("<!--events:home-->", events_block("home")).replace("<!--events:page-->", events_block("page")).replace("<!--events:recent-->", events_recent())
+        body = body.replace("<!--donate-->", donate_block())
         body = re.sub(r"<!--court:([\w-]+)-->", lambda mm: court(mm.group(1)), body)
         body = body.replace("<!--courtdata-->", '<script type="application/json" id="court-data">' + json.dumps(court_data(), ensure_ascii=False).replace("</", "<\\/") + "</script>")
-        (ROOT / src.name).write_text(head(meta) + "\n" + body.rstrip() + "\n\n" + foot())
+        (ROOT / src.name).write_text(head(meta) + "\n" + body.rstrip() + "\n\n" + foot(not meta.get("own_news")))
         built.append(src.name)
     write_pwa(built)
     print(f"Built {len(built)} pages: {', '.join(built)}")

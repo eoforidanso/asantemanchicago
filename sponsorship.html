@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Corporate Sponsorship · Asanteman Chicago &amp; Midwest</title>
+  <title>Development Partnerships · Asanteman Chicago &amp; Midwest</title>
   <meta name="description" content="Partner with or sponsor the Asanteman Association of Chicago &amp; Midwest.">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="manifest" href="manifest.webmanifest">
@@ -16,9 +16,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=47">
+  <link rel="stylesheet" href="assets/css/site.css?v=50">
 </head>
-<body>
+<body data-noexit>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
@@ -29,41 +29,48 @@
     </a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="index.html">Home</a>
       <div class="nav-group">
-        <button type="button">About</button>
+        <button type="button">About us</button>
         <div class="nav-menu">
-          <a href="about.html">About AACM</a>
-          <a href="history.html">Our History</a>
-          <a href="the-asantes.html">The Asantes</a>
-          <a href="otumfuo-osei-tutu-ii.html">Otumfuo Osei Tutu II</a>
-        </div>
-      </div>
-      <div class="nav-group">
-        <button type="button">Leadership</button>
-        <div class="nav-menu">
-          <a href="executive-team.html">Executive Team</a>
+          <a href="history.html">History</a>
+          <a href="the-asantes.html">About the Asante Kingdom</a>
+          <a href="executive-team.html">Chiefs and queens</a>
           <a href="council-of-elders.html">Council of Elders</a>
-          <a href="enstooled-royalty.html">Enstooled Royalty (Ghana)</a>
-          <a href="former-executives.html">Past Asantefoɔ Executives</a>
+          <a href="manhyia-palace.html">Manhyia Palace</a>
+          <a href="executive-team.html#administrative">Administrative team</a>
         </div>
       </div>
-      <a href="projects.html">Programs</a>
-      <a href="inauguration.html">Events</a>
-      <a href="media.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-      <a class="btn btn--gold" href="membership.html">Join Today</a>
+      <a href="projects.html">Our work</a>
+      <div class="nav-group">
+        <button type="button" class="is-active">Get involved</button>
+        <div class="nav-menu">
+          <a href="get-involved.html">Ways to get involved</a>
+          <a href="membership.html">Membership &amp; FAQ</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="sponsorship.html" aria-current="page">Development partnerships</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button type="button">Publications &amp; Events</button>
+        <div class="nav-menu">
+          <a href="media.html">Media</a>
+          <a href="events.html">Events</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact us</a>
+      <a class="btn btn--gold" href="membership-registration.html">Join Today</a>
     </nav>
   </div>
 </header>
+<a class="donate-tab" href="donate.html">Donate</a>
 
 <main id="main">
 
   <section class="page-hero">
     <div class="wrap">
-      <div class="crumbs"><a href="index.html">Home</a><span>/</span><a href="membership.html">Membership</a><span>/</span>Corporate Sponsorship</div>
+      <div class="crumbs"><a href="index.html">Home</a><span>/</span><a href="get-involved.html">Get involved</a><span>/</span>Development partnerships</div>
       <div class="eyebrow">Corporate partnerships</div>
-      <h1>Corporate <em>sponsorship</em>.</h1>
+      <h1>Development <em>partnerships</em>.</h1>
       <p class="lede">Enhance brand visibility, strengthen your CSR efforts, engage employees, and connect with the Ghanaian and African diaspora community in Chicago and the Midwest.</p>
     </div>
   </section>
@@ -110,7 +117,14 @@
 
 <footer class="site-footer">
   <div class="kente kente--thin" role="presentation"></div>
-  <div class="wrap">
+  <div class="wrap footer-news">
+    <div>
+      <h4>Newsletter</h4>
+      <p class="fn-lede">News, events and stories from the Asanteman Association of Chicago &amp; Midwest.</p>
+    </div>
+    <form class="newsletter" data-mailto="info@chicagoasanteman.org" data-subject="Newsletter subscription"><label class="sr-only" for="foot-email">Email address</label><input type="email" id="foot-email" name="EMAIL" data-label="Email" placeholder="Your email address" required autocomplete="email"><button class="btn btn--gold" type="submit">Subscribe</button><p class="form-status" role="status">Your email app should open with your request, ready to send.</p></form>
+  </div>
+  <div class="wrap footer-cols">
     <div>
       <a class="brand" href="index.html">
         <img src="assets/img/logo.png" alt="" width="36" height="44">
@@ -118,25 +132,28 @@
       </a>
       <p class="motto">One People, One Heritage, One Mission.</p>
       <p>A tax-exempt 501(c)(3) non-profit organization.</p>
+      <div class="social"><a href="https://www.facebook.com/asantemanchicago" rel="noopener" target="_blank" aria-label="AACM on Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.youtube.com/@AsantemanChicago" rel="noopener" target="_blank" aria-label="AACM on YouTube"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div>
     </div>
     <div>
-      <h4>Association</h4>
+      <h4>About us</h4>
       <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="membership.html">Membership</a></li>
-        <li><a href="executive-team.html">Leadership</a></li>
-        <li><a href="inauguration.html">Events</a></li>
-        <li><a href="volunteer.html">Get Involved</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="the-asantes.html">About the Asante Kingdom</a></li>
+        <li><a href="executive-team.html">Chiefs and queens</a></li>
+        <li><a href="council-of-elders.html">Council of Elders</a></li>
+        <li><a href="manhyia-palace.html">Manhyia Palace</a></li>
+        <li><a href="executive-team.html#administrative">Administrative team</a></li>
       </ul>
     </div>
     <div>
-      <h4>Heritage</h4>
+      <h4>Take part</h4>
       <ul>
-        <li><a href="history.html">Our History</a></li>
-        <li><a href="the-asantes.html">The Asantes</a></li>
-        <li><a href="otumfuo-osei-tutu-ii.html">Otumfuo Osei Tutu II</a></li>
-        <li><a href="projects.html">Programs</a></li>
-        <li><a href="media.html">Gallery</a></li>
+        <li><a href="projects.html">Our work</a></li>
+        <li><a href="get-involved.html">Get involved</a></li>
+        <li><a href="membership.html">Membership &amp; FAQ</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="donate.html">Donate</a></li>
       </ul>
     </div>
     <div>
@@ -156,6 +173,16 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=47"></script>
+<dialog class="exit-pop" id="exit-pop" aria-labelledby="exit-title">
+  <button type="button" class="exit-close" aria-label="Close">×</button>
+  <img src="assets/img/crest-mark.png" alt="" width="44" height="52">
+  <div class="eyebrow">Before you go</div>
+  <h2 id="exit-title">Stay close to the court.</h2>
+  <p>Events, news and stories from the Asanteman Association of Chicago &amp; Midwest, sent to your inbox.</p>
+  <form class="newsletter" data-mailto="info@chicagoasanteman.org" data-subject="Newsletter subscription"><label class="sr-only" for="exit-email">Email address</label><input type="email" id="exit-email" name="EMAIL" data-label="Email" placeholder="Your email address" required autocomplete="email"><button class="btn btn--gold" type="submit">Subscribe</button><p class="form-status" role="status">Your email app should open with your request, ready to send.</p></form>
+  <button type="button" class="exit-skip">No thanks</button>
+</dialog>
+
+<script src="assets/js/site.js?v=50"></script>
 </body>
 </html>

@@ -1,0 +1,8 @@
+{
+  "_note": "Add upcoming events here, newest last. Fields: title, date (YYYY-MM-DD, optional), when (text, optional), place, blurb, href, cta. The homepage and Events page update on the next build.",
+  "upcoming": [],
+  "recent": [
+    {"title": "Inauguration & Enstoolments", "date": "2026-05-23", "when": "May 23–24, 2026", "place": "Hilton Chicago/Northbrook, Northbrook, IL", "blurb": "Theme: United we stand, together we rise.", "href": "inauguration.html", "cta": "View the event"},
+    {"title": "Akwasidae", "when": "Photographs by BIR Studios", "blurb": "The chiefs, queen mothers and members of AACM gathered in kente.", "href": "media.html", "cta": "See the photos"}
+  ]
+}
