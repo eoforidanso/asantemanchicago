@@ -290,3 +290,11 @@ document.querySelectorAll('form.newsletter:not([data-mailto])').forEach((f) => {
   pop.addEventListener('click', (e) => { if (e.target === pop) pop.close(); });
   pop.querySelector('form')?.addEventListener('submit', () => { remember(365); setTimeout(() => pop.close(), 2200); });
 })();
+
+/* Donate pill: step aside while the footer is on screen so it never covers the links */
+(() => {
+  const tab = document.querySelector('.donate-tab');
+  const foot = document.querySelector('.site-footer');
+  if (!tab || !foot || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([e]) => tab.classList.toggle('is-away', e.isIntersecting), { threshold: 0.05 }).observe(foot);
+})();
