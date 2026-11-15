@@ -180,9 +180,9 @@ def court(key):
 DIVISIONS = [
     # key, display name, short role, one-line blurb, chief title match, queen-mother title match
     ("akwamu", "Akwamu", "The vanguard", "The division that goes first.", "akwamuhene", "akwamuhemaa"),
-    ("adonten", "Adonten", "The main body", "The centre of the formation.", "adontenhene", None),
+    ("adonten", "Adonten", "The main body", "The centre of the formation.", "adontenhene", "adontenhemaa"),
     ("nifa", "Nifa", "The right wing", "The right hand of the stool.", "nifahene", "nifahemaa"),
-    ("benkum", "Benkum", "The left wing", "The left hand of the stool.", "benkumhene", None),
+    ("benkum", "Benkum", "The left wing", "The left hand of the stool.", "benkumhene", "benkumhemaa"),
     ("kyidom", "Kyidom", "The rear guard", "The division that follows and protects.", "kyidomhene", "kyidomhemaa"),
     ("gyaase", "Gyaase", "The household", "The people closest to the stool.", "gyaasehene", "gyaasehemaa"),
 ]
