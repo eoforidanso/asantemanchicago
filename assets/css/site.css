@@ -1194,3 +1194,23 @@ p, li { hanging-punctuation: first; }
 /* Header: solid ink at rest, frosted glass only once content scrolls beneath it */
 .site-header:not(.scrolled)::before { background: var(--ink); }
 .site-header::before { transition: background-color .3s var(--calm); }
+
+/* ==========================================================
+   Glass with restraint: frosted only where something floats over
+   a photo or over content scrolling beneath it (header, dropdown
+   menus, caption plates, photo-viewer buttons). Everything that
+   sits on a plain background returns to a solid material.
+   ========================================================== */
+:root { --solid-dark: #1e1711; --solid-dark-line: rgba(255, 255, 255, .08); --solid-light: #fbf7ef; --solid-light-line: rgba(42, 32, 24, .09); }
+.subnav, .tabs3d, .divs, .tabpanel, .hero-stats, .finder-card {
+  background: var(--solid-dark); background-image: none; border: 1px solid var(--solid-dark-line);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+.btn--ghost { background: transparent; border-color: rgba(255,255,255,.28); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.btn--ghost:hover { background: rgba(255,255,255,.06); }
+.impact-card, .tier:not(.tier--dark), .form-card, .clan {
+  background: var(--solid-light); border: 1px solid var(--solid-light-line);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  box-shadow: 0 1px 2px rgba(42,32,24,.04), 0 14px 34px -18px rgba(42,32,24,.16);
+}
