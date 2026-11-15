@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAGES = ROOT / "src" / "pages"
-VERSION = "33"  # bump when CSS/JS change so browsers fetch the new files
+VERSION = "34"  # bump when CSS/JS change so browsers fetch the new files
 
 PHONE_DISPLAY = "(224) 334-6661"
 PHONE_TEL = "+12243346661"
@@ -164,11 +164,22 @@ def foot():
 LEADERSHIP = json.loads((ROOT / "src/data/leadership.json").read_text())
 
 
+def photo_width(name):
+    try:
+        from PIL import Image
+        with Image.open(ROOT / "assets/img/people" / name) as im:
+            return im.size[0]
+    except Exception:
+        return 0
+
+
 def court(key):
     cards = []
-    for p in LEADERSHIP[key]:
+    for i, p in enumerate(LEADERSHIP[key]):
         name, title = html.escape(p["name"]), html.escape(p["title"])
-        cards.append(f"""        <div class="seat">
+        # the lead portrait is shown large only when the photo is sharp enough for it
+        cls = "seat seat--hero" if i == 0 and key != "exec-stool" and photo_width(p["photo"]) >= 600 else "seat"
+        cards.append(f"""        <div class="{cls}">
           <div class="seat-frame"><img src="assets/img/people/{p['photo']}" alt="{name}" loading="lazy" width="315" height="350"></div>
           <div class="stool-title">{title}</div>
           <h3>{name}</h3>
