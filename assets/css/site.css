@@ -1521,3 +1521,16 @@ p, li { hanging-punctuation: first; }
 @media (max-width: 700px) { .adae { grid-template-columns: 1fr; padding: 26px 22px; text-align: center; } .adae .eyebrow { justify-content: center; } }
 
 .reg-row[hidden] { display: none; }
+
+/* ==========================================================
+   Frames: no arches. Portraits sit in a straight gallery frame
+   with a fine gold keyline set just off the edge.
+   ========================================================== */
+.seat-frame, .fs-figure, .ph-duo figure { border-radius: 4px; outline: 1px solid rgba(201,161,74,.55); outline-offset: 6px; }
+.seat-frame img { border-radius: 0; }
+.seat-frame { margin: 7px 7px 30px; }
+.fs-figure, .ph-duo figure { margin: 7px; }
+@media (max-width: 1003px) { .ph-duo figure { border-radius: 4px; } }
+.hero-figure::before, .stack-img::before { border-radius: 4px; }
+.hero-figure img.main, .stack-img .a { border-radius: 4px; }
+.stack-img .b { border-radius: 4px; }
