@@ -1479,3 +1479,45 @@ p, li { hanging-punctuation: first; }
   .donate-tab:hover, .donate-tab:focus-visible { background: rgba(30, 23, 17, .95); color: var(--gold-bright); padding-right: 22px; }
   .donate-tab.is-away { opacity: 0; transform: translateY(10px); pointer-events: none; }
 }
+
+/* ==========================================================
+   The Register of Stools: a court roll, set like a ledger
+   ========================================================== */
+.reg-wrap { max-width: 980px; }
+.reg-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-bottom: 40px; }
+.reg-tools input { flex: 1 1 280px; max-width: 420px; height: 50px; padding: 0 20px; font: 400 16px/1 var(--sans); color: var(--text); background: #fffdf8; border: 1px solid rgba(42,32,24,.25); border-radius: 999px; }
+.reg-tools input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.reg-count { margin: 0; font: 600 12px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); }
+.reg-group { margin-bottom: 56px; }
+.reg-group h2 { display: flex; align-items: baseline; gap: 14px; font-size: clamp(26px, 3vw, 34px); padding-bottom: 14px; margin: 0; border-bottom: 2px solid var(--gold); }
+.reg-group h2 .twi { font: italic 400 17px/1 var(--serif); color: var(--gold-deep); }
+.reg-list { list-style: none; margin: 0; padding: 0; }
+.reg-row { display: grid; grid-template-columns: 48px minmax(0, auto) minmax(24px, 1fr) minmax(0, auto); align-items: center; gap: 0 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.reg-row img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; border: 1px solid rgba(201,161,74,.6); background: var(--paper-2); }
+.reg-stool b { display: block; font: 400 21px/1.2 var(--serif); color: var(--ink); }
+.reg-gloss { display: block; margin-top: 3px; font-size: 14px; line-height: 1.45; color: var(--muted); max-width: 46ch; }
+.reg-lead { align-self: center; height: 0; border-bottom: 1px dotted rgba(143,109,36,.55); }
+.reg-name { font: 600 14.5px/1.35 var(--sans); letter-spacing: .01em; color: var(--text); text-align: right; max-width: 30ch; }
+.reg-source, .reg-none { font-size: 14px; color: var(--muted); max-width: 70ch; }
+@media (max-width: 700px) {
+  .reg-tools input { max-width: none; flex-basis: 100%; }
+  .reg-row { grid-template-columns: 44px minmax(0, 1fr); gap: 2px 14px; align-items: start; padding: 16px 0; }
+  .reg-row img { width: 44px; height: 44px; grid-row: 1 / span 2; }
+  .reg-lead { display: none; }
+  .reg-stool b { font-size: 19px; }
+  .reg-name { grid-column: 2; text-align: left; margin-top: 6px; color: var(--gold-deep); max-width: none; }
+}
+
+/* Akwasidae: the next days the Asantehene sits in state */
+.adae { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px 48px; align-items: center; padding: 32px 36px; margin-bottom: 28px; background: var(--solid-dark, #1e1711); color: var(--on-dark); border: 1px solid rgba(201,161,74,.4); border-radius: 16px; }
+.adae .eyebrow { color: var(--gold); }
+.adae-date { margin: 12px 0 6px; font: 400 clamp(28px, 3.6vw, 44px)/1.1 var(--serif); color: var(--gold-bright); }
+.adae-in { margin: 0; font-size: 15px; color: var(--on-dark-muted); min-height: 1.4em; }
+.adae-label { font: 600 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.adae-after ol { list-style: none; margin: 12px 0 0; padding: 0; }
+.adae-after li { padding: 9px 0; border-top: 1px solid var(--line-dark); font: 400 18px/1.2 var(--serif); }
+.adae-note { grid-column: 1 / -1; margin: 0; padding-top: 16px; border-top: 1px solid var(--line-dark); font-size: 13.5px; color: var(--on-dark-muted); }
+.adae:not(.is-ready) .adae-after { display: none; }
+@media (max-width: 700px) { .adae { grid-template-columns: 1fr; padding: 26px 22px; text-align: center; } .adae .eyebrow { justify-content: center; } }
+
+.reg-row[hidden] { display: none; }

@@ -298,3 +298,31 @@ document.querySelectorAll('form.newsletter:not([data-mailto])').forEach((f) => {
   if (!tab || !foot || !('IntersectionObserver' in window)) return;
   new IntersectionObserver(([e]) => tab.classList.toggle('is-away', e.isIntersecting), { threshold: 0.05 }).observe(foot);
 })();
+
+/* Akwasidae: every 42 days, counted from the Akwasidae of 26 April 2026 */
+document.querySelectorAll('[data-adae]').forEach((box) => {
+  const DAY = 864e5, CYCLE = 42 * DAY, anchor = Date.UTC(2026, 3, 26);
+  const now = new Date(), today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const next = anchor + Math.ceil((today - anchor) / CYCLE) * CYCLE;
+  const fmt = (t, o) => new Date(t).toLocaleDateString('en-US', Object.assign({ timeZone: 'UTC', day: 'numeric', month: 'long', year: 'numeric' }, o));
+  const days = Math.round((next - today) / DAY);
+  box.querySelector('[data-adae-next]').textContent = fmt(next, { weekday: 'long' });
+  box.querySelector('[data-adae-in]').textContent = days === 0 ? 'Today' : days === 1 ? 'Tomorrow' : `In ${days} days`;
+  const list = box.querySelector('[data-adae-list]');
+  [1, 2, 3].forEach((k) => { const li = document.createElement('li'); li.textContent = fmt(next + k * CYCLE, {}); list.appendChild(li); });
+  box.classList.add('is-ready');
+});
+
+/* Register of Stools: search by stool or name */
+(() => {
+  const q = document.getElementById('reg-q'), reg = document.getElementById('register');
+  if (!q || !reg) return;
+  const rows = [...reg.querySelectorAll('.reg-row')], count = document.querySelector('.reg-count'), none = document.querySelector('.reg-none');
+  q.addEventListener('input', () => {
+    const v = q.value.trim().toLowerCase(); let n = 0;
+    rows.forEach((r) => { const hit = !v || r.dataset.q.includes(v); r.hidden = !hit; if (hit) n++; });
+    reg.querySelectorAll('.reg-group').forEach((g) => { g.hidden = !g.querySelector('.reg-row:not([hidden])'); });
+    count.textContent = v ? `${n} of ${count.dataset.total} entries` : `${count.dataset.total} entries`;
+    none.hidden = n > 0;
+  });
+})();

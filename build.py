@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAGES = ROOT / "src" / "pages"
-VERSION = "52"  # bump when CSS/JS change so browsers fetch the new files
+VERSION = "53"  # bump when CSS/JS change so browsers fetch the new files
 
 PHONE_DISPLAY = "(224) 334-6661"
 PHONE_TEL = "+12243346661"
@@ -41,6 +41,7 @@ NAV = [
         ("history", "History", "history.html"),
         ("asantes", "About the Asante Kingdom", "the-asantes.html"),
         ("executive", "Chiefs and queens", "executive-team.html"),
+        ("register", "Register of Stools", "register-of-stools.html"),
         ("elders", "Council of Elders", "council-of-elders.html"),
         ("manhyia", "Manhyia Palace", "manhyia-palace.html"),
         ("admin", "Administrative team", "executive-team.html#administrative"),
@@ -199,6 +200,7 @@ def foot(show_news=True):
         <li><a href="history.html">History</a></li>
         <li><a href="the-asantes.html">About the Asante Kingdom</a></li>
         <li><a href="executive-team.html">Chiefs and queens</a></li>
+        <li><a href="register-of-stools.html">Register of Stools</a></li>
         <li><a href="council-of-elders.html">Council of Elders</a></li>
         <li><a href="manhyia-palace.html">Manhyia Palace</a></li>
         <li><a href="executive-team.html#administrative">Administrative team</a></li>
@@ -282,6 +284,50 @@ def donate_block():
         return f'<p><a class="btn btn--gold" href="{DONATE_URL}" rel="noopener">Give now</a></p>'
     return ('<div class="notice"><b>Online giving opens soon.</b> Until then, to give or to ask how a gift is used, '
             f'write to <a href="mailto:{EMAIL}">{EMAIL}</a> or call <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>.</div>')
+
+
+# ---------- the Register of Stools ----------
+TITLE_STEMS = json.loads((ROOT / "src/data/titles.json").read_text())["stems"]
+REGISTER_GROUPS = [
+    ("The Stool", "", "exec-stool"),
+    ("Chiefs", "", "exec-chiefs"),
+    ("Queen mothers", "Mmaahemaa", "exec-queens"),
+    ("Council of Elders", "", "elders"),
+    ("Enstooled in Ghana", "", "royalty"),
+    ("Those who served before", "", "former"),
+]
+
+
+def title_gloss(title):
+    low = title.lower().replace(" ", "")
+    return " ".join(g for stem, g in TITLE_STEMS if stem in low)
+
+
+def register():
+    out, total = [], 0
+    for label, twi, key in REGISTER_GROUPS:
+        rows = []
+        for p in LEADERSHIP[key]:
+            name, title = html.escape(p["name"]), html.escape(p["title"])
+            gloss = title_gloss(p["title"])
+            g = f'<span class="reg-gloss">{html.escape(gloss)}</span>' if gloss else ""
+            q = html.escape((p["title"] + " " + p["name"] + " " + gloss).lower())
+            rows.append(f'<li class="reg-row" data-q="{q}"><img src="assets/img/people/{p["photo"]}" alt="" loading="lazy" width="48" height="48">'
+                        f'<span class="reg-stool"><b>{title}</b>{g}</span><span class="reg-lead" aria-hidden="true"></span><span class="reg-name">{name}</span></li>')
+            total += 1
+        tw = f' <span class="twi">{twi}</span>' if twi else ""
+        out.append(f'<section class="reg-group"><h2>{label}{tw}</h2><ol class="reg-list">' + "".join(rows) + "</ol></section>")
+    head_ = (f'<div class="reg-tools"><label class="sr-only" for="reg-q">Search the register</label>'
+             f'<input type="search" id="reg-q" placeholder="Search a stool or a name" autocomplete="off">'
+             f'<p class="reg-count" aria-live="polite" data-total="{total}">{total} entries</p></div>')
+    return head_ + '<div class="register" id="register">' + "".join(out) + '</div><p class="reg-none" hidden>No stool or name matches that search.</p>'
+
+
+def akwasidae():
+    return ('<div class="adae" data-adae><div class="adae-next"><span class="eyebrow"><span class="twi">Akwasidae</span> <span class="sep">·</span> Manhyia Palace, Kumasi</span>'
+            '<p class="adae-date" data-adae-next>Every sixth Sunday</p><p class="adae-in" data-adae-in></p></div>'
+            '<div class="adae-after"><span class="adae-label">Then</span><ol data-adae-list></ol></div>'
+            '<p class="adae-note">Akwasidae returns every 42 days, when the Asantehene sits in state. Dates here are counted from the Akwasidae of 26 April 2026; Manhyia Palace confirms each one.</p></div>')
 
 
 def events_recent():
@@ -450,6 +496,7 @@ def build():
         body = body.replace("<!--newsletter-->", newsletter("pg")).replace("<!--social-->", social_html())
         body = body.replace("<!--events:home-->", events_block("home")).replace("<!--events:page-->", events_block("page")).replace("<!--events:recent-->", events_recent())
         body = body.replace("<!--donate-->", donate_block())
+        body = body.replace("<!--register-->", register()).replace("<!--akwasidae-->", akwasidae())
         body = re.sub(r"<!--court:([\w-]+)-->", lambda mm: court(mm.group(1)), body)
         body = body.replace("<!--courtdata-->", '<script type="application/json" id="court-data">' + json.dumps(court_data(), ensure_ascii=False).replace("</", "<\\/") + "</script>")
         (ROOT / src.name).write_text(head(meta) + "\n" + body.rstrip() + "\n\n" + foot(not meta.get("own_news")))

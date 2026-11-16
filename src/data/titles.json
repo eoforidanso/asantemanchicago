@@ -1,0 +1,28 @@
+{
+  "_note": "Short meanings for stool titles, matched by the stem inside a title (first match wins per stem). Only add a meaning you can source; a title with no entry is shown without a note.",
+  "stems": [
+    ["asantefuohene", "Head of the Asante community in Chicago."],
+    ["asantefoɔhene", "Head of the Asante community in Chicago."],
+    ["asantefuohemaa", "Queen mother of the Asante community in Chicago."],
+    ["asantefoɔhemaa", "Queen mother of the Asante community in Chicago."],
+    ["kronti", "Caretaker of the land and second in command; serves as regent."],
+    ["akwamu", "The vanguard: the division that goes first."],
+    ["adonten", "The main body: goes in front of the army."],
+    ["nifa", "The right wing of the formation."],
+    ["benkum", "The left wing of the formation."],
+    ["akyempim", "Shares out whatever is to be distributed, and protects the king."],
+    ["kyidom", "The rear guard: gathers those left behind and sends them forward."],
+    ["gyaase", "The household: the people closest to the stool."],
+    ["ankobea", "“One who stays at home”: caretaker of the palace."],
+    ["manwere", "Head of the interior."],
+    ["sanaa", "Head of the treasury."],
+    ["nsumankwa", "Spiritual head of the community."],
+    ["nkosuo", "Responsible for development."],
+    ["dwantoa", "The one to whom people turn for shelter and mercy."],
+    ["akyeamehene", "Head of the linguists."],
+    ["okyeame", "The linguist: the chief speaks through him, and he pours libation."],
+    ["mmrant", "Chief of the young men."],
+    ["oyoko", "Of the Oyoko clan."],
+    ["abusuapanin", "Head of the family."]
+  ]
+}
