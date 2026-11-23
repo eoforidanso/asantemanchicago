@@ -1,0 +1,128 @@
+# AACM admin page. Open https://chicagoasanteman.org/admin/ and sign in with GitHub.
+# Every Save publishes to the live site (the site rebuilds itself in about a minute).
+# Setup steps are in docs/admin-setup.md.
+
+backend:
+  name: github
+  repo: eoforidanso/asantemanchicago
+  branch: main
+  # The address of the sign-in gateway (see docs/admin-setup.md, step 2). Replace this line.
+  base_url: https://REPLACE-WITH-YOUR-SIGN-IN-ADDRESS
+  commit_messages:
+    create: 'Admin: add {{collection}} "{{slug}}"'
+    update: 'Admin: update {{collection}}'
+    delete: 'Admin: delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Admin: upload {{path}}'
+    deleteMedia: 'Admin: delete {{path}}'
+
+site_url: https://chicagoasanteman.org
+display_url: https://chicagoasanteman.org
+logo_url: https://chicagoasanteman.org/assets/img/logo.png
+locale: en
+publish_mode: simple
+
+# Photos uploaded in the Gallery land here unless a section says otherwise.
+media_folder: /assets/img/gallery/uploads
+public_folder: /assets/img/gallery/uploads
+
+collections:
+  - name: gallery
+    label: Gallery photos
+    label_singular: Gallery
+    description: Photos shown on the Gallery page. New photos appear first. Drag to reorder.
+    files:
+      - name: photos
+        label: Gallery photos
+        file: src/data/gallery-uploads.json
+        format: json
+        fields:
+          - label: Photos
+            name: photos
+            widget: list
+            label_singular: photo
+            summary: '{{fields.alt}}'
+            required: false
+            fields:
+              - { label: Photo, name: image, widget: image, hint: "A JPG or PNG. Large photos are resized for the site automatically." }
+              - { label: What the photo shows, name: alt, widget: string, hint: "One short sentence, for example: Chiefs seated on the stage at Akwasidae. Screen readers read this out." }
+
+  - name: events
+    label: Events
+    label_singular: Event
+    description: Upcoming and past events shown on the home page and the Events page.
+    files:
+      - name: events
+        label: Events
+        file: src/data/events.json
+        format: json
+        fields:
+          - { name: _note, widget: hidden, default: "Add upcoming events here, newest last. Fields: title, date (YYYY-MM-DD, optional), when (text, optional), place, blurb, href, cta. The homepage and Events page update on the next build." }
+          - label: Upcoming events
+            name: upcoming
+            widget: list
+            label_singular: event
+            summary: '{{fields.title}}'
+            required: false
+            fields: &event_fields
+              - { label: Event name, name: title, widget: string }
+              - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false, hint: "Shows as a date badge. Leave empty if there is no single date." }
+              - { label: When (as written), name: when, widget: string, required: false, hint: "For example: May 23-24, 2026, or Saturday 7 pm." }
+              - { label: Place, name: place, widget: string, required: false }
+              - { label: Short description, name: blurb, widget: text, required: false }
+              - { label: Link (web address or page), name: href, widget: string, required: false, hint: "For example: inauguration.html or https://..." }
+              - { label: Link button text, name: cta, widget: string, required: false, hint: "For example: Register, or View the event." }
+          - label: Past events
+            name: recent
+            widget: list
+            label_singular: event
+            summary: '{{fields.title}}'
+            required: false
+            fields: *event_fields
+
+  - name: leadership
+    label: Chiefs, queens and officers
+    label_singular: Leadership
+    description: The people shown on the Executive Team, Council of Elders, Enstooled Royalty, Past Executives and Register of Stools pages. The order here is the order on the page.
+    files:
+      - name: leadership
+        label: Leadership lists
+        file: src/data/leadership.json
+        format: json
+        media_folder: /assets/img/people
+        public_folder: /assets/img/people
+        fields:
+          - { name: _note, widget: hidden, default: "Photos live in assets/img/people/. Each person: name, title (stool or office), photo. Order is display order." }
+          - label: The Stool (Asantefuohene and Asantefuohemaa)
+            name: exec-stool
+            widget: list
+            label_singular: person
+            summary: '{{fields.title}} - {{fields.name}}'
+            fields: &person_fields
+              - { label: Name, name: name, widget: string }
+              - { label: Stool or office, name: title, widget: string, hint: "For example: Akwamuhene" }
+              - { label: Photo, name: photo, widget: image, hint: "A portrait, taller than wide, at least 600 pixels wide for the best result." }
+          - { label: Chiefs, name: exec-chiefs, widget: list, label_singular: person, summary: '{{fields.title}} - {{fields.name}}', fields: *person_fields }
+          - { label: Queen mothers, name: exec-queens, widget: list, label_singular: person, summary: '{{fields.title}} - {{fields.name}}', fields: *person_fields }
+          - { label: Officers, name: exec-officers, widget: list, label_singular: person, summary: '{{fields.title}} - {{fields.name}}', fields: *person_fields }
+          - { label: Hospitality, name: exec-hospitality, widget: list, label_singular: person, summary: '{{fields.title}} - {{fields.name}}', fields: *person_fields }
+          - { label: Council of Elders, name: elders, widget: list, label_singular: person, summary: '{{fields.title}} - {{fields.name}}', fields: *person_fields }
+          - { label: Enstooled royalty, name: royalty, widget: list, label_singular: person, summary: '{{fields.title}} - {{fields.name}}', fields: *person_fields }
+          - { label: Past executives, name: former, widget: list, label_singular: person, summary: '{{fields.title}} - {{fields.name}}', fields: *person_fields }
+
+  - name: settings
+    label: Site settings
+    label_singular: Settings
+    description: Contact details, the donation link and the newsletter form address.
+    files:
+      - name: settings
+        label: Site settings
+        file: src/data/settings.json
+        format: json
+        fields:
+          - { label: Donation link, name: donate_url, widget: string, required: false, hint: "The web address of AACM's donation page (Zeffy, PayPal, Stripe...). Must start with https://. Leave empty to show 'Online giving opens soon'." }
+          - { label: Newsletter form address (Mailchimp), name: mailchimp_action, widget: string, required: false, hint: "The 'action' address from a Mailchimp signup form. Must start with https://. Leave empty and the forms open the visitor's email app." }
+          - { label: Phone, name: phone, widget: string, hint: "For example: (224) 334-6661" }
+          - { label: Email, name: email, widget: string }
+          - { label: Address, name: address, widget: string }
+          - { label: Facebook page, name: facebook_url, widget: string, required: false }
+          - { label: YouTube channel, name: youtube_url, widget: string, required: false }

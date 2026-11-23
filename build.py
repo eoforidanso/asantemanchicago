@@ -17,6 +17,16 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).parent
+
+
+def _photo_name(p):
+    """The file name only, so a path typed or stored by the admin page still lands in assets/img/people."""
+    return Path(str(p.get("photo", ""))).name
+
+
+def _photo(p):
+    return html.escape(_photo_name(p), quote=True)
+
 PAGES = ROOT / "src" / "pages"
 VERSION = "57"  # bump when CSS/JS change so browsers fetch the new files
 
@@ -32,6 +42,37 @@ DONATE_URL = ""          # e.g. a Zeffy / PayPal / Stripe donation link
 MAILCHIMP_ACTION = ""    # the "action" URL from a Mailchimp embedded signup form
 FACEBOOK_URL = "https://www.facebook.com/asantemanchicago"
 YOUTUBE_URL = "https://www.youtube.com/@AsantemanChicago"
+
+# The admin page (/admin) edits src/data/settings.json. Anything set there replaces the values
+# above; a value that is missing or not valid is ignored, so a typo cannot break the build.
+try:
+    SETTINGS = json.loads((ROOT / "src/data/settings.json").read_text())
+except Exception:
+    SETTINGS = {}
+
+
+def _clean(key):
+    return str(SETTINGS.get(key) or "").strip()
+
+
+def _https(key):
+    v = _clean(key)
+    return html.escape(v, quote=True) if re.match(r"^https://[^\s\"'<>]+$", v) else ""
+
+
+_email = _clean("email")
+if re.match(r"^[^@\s<>\"']+@[^@\s<>\"']+\.[^@\s<>\"']+$", _email):
+    EMAIL = _email
+_digits = re.sub(r"\D", "", _clean("phone"))
+if len(_digits) == 10 or (len(_digits) == 11 and _digits.startswith("1")):
+    PHONE_DISPLAY = html.escape(_clean("phone"))
+    PHONE_TEL = "+1" + _digits[-10:]
+if _clean("address"):
+    ADDRESS = html.escape(_clean("address"))
+DONATE_URL = _https("donate_url")
+MAILCHIMP_ACTION = _https("mailchimp_action")
+FACEBOOK_URL = _https("facebook_url") or FACEBOOK_URL
+YOUTUBE_URL = _https("youtube_url") or YOUTUBE_URL
 
 LOGO = '<img src="assets/img/logo.png" alt="" width="36" height="44">'
 
@@ -312,7 +353,7 @@ def register():
             gloss = title_gloss(p["title"])
             g = f'<span class="reg-gloss">{html.escape(gloss)}</span>' if gloss else ""
             q = html.escape((p["title"] + " " + p["name"] + " " + gloss).lower())
-            rows.append(f'<li class="reg-row" data-q="{q}"><img src="assets/img/people/{p["photo"]}" alt="" loading="lazy" width="48" height="48">'
+            rows.append(f'<li class="reg-row" data-q="{q}"><img src="assets/img/people/{_photo(p)}" alt="" loading="lazy" width="48" height="48">'
                         f'<span class="reg-stool"><b>{title}</b>{g}</span><span class="reg-lead" aria-hidden="true"></span><span class="reg-name">{name}</span></li>')
             total += 1
         tw = f' <span class="twi">{twi}</span>' if twi else ""
@@ -337,6 +378,59 @@ def events_recent():
 LEADERSHIP = json.loads((ROOT / "src/data/leadership.json").read_text())
 
 
+# ---------- gallery photos added from the admin page (src/data/gallery-uploads.json) ----------
+UPLOADS = ROOT / "assets" / "img" / "gallery" / "uploads"
+
+
+def _variant(src, out, width):
+    """Make a smaller JPEG of an uploaded photo (needs Pillow; returns None when it cannot)."""
+    if out.exists():
+        return out
+    try:
+        from PIL import Image, ImageOps
+        out.parent.mkdir(parents=True, exist_ok=True)
+        with Image.open(src) as im:
+            im = ImageOps.exif_transpose(im).convert("RGB")
+            if im.size[0] > width:
+                im = im.resize((width, round(im.size[1] * width / im.size[0])), getattr(Image, "Resampling", Image).LANCZOS)
+            im.save(out, "JPEG", quality=82, optimize=True, progressive=True)
+        return out
+    except Exception:
+        return None
+
+
+def gallery_uploads():
+    try:
+        photos = json.loads((ROOT / "src/data/gallery-uploads.json").read_text()).get("photos", [])
+    except Exception:
+        return ""
+    out = []
+    for ph in photos:
+        name = Path(str(ph.get("image", ""))).name
+        src = UPLOADS / name
+        if not name or not src.is_file():
+            continue
+        stem = re.sub(r"[^A-Za-z0-9_-]", "-", src.stem)
+        thumb = _variant(src, UPLOADS / "t" / (stem + ".jpg"), 720)
+        large = _variant(src, UPLOADS / "l" / (stem + ".jpg"), 1800)
+        w, h = 720, 480
+        if thumb and large:
+            t_url, l_url = f"assets/img/gallery/uploads/t/{stem}.jpg", f"assets/img/gallery/uploads/l/{stem}.jpg"
+            try:
+                from PIL import Image
+                with Image.open(thumb) as im:
+                    w, h = im.size
+            except Exception:
+                pass
+        else:
+            t_url = l_url = "assets/img/gallery/uploads/" + html.escape(name, quote=True)
+        alt = html.escape(str(ph.get("alt") or "Photo from an AACM gathering"), quote=True)
+        out.append(f'<button type="button" class="shot" data-large="{l_url}" aria-label="Enlarge photo: {alt}">'
+                   f'<img src="{t_url}" alt="{alt}" width="{w}" height="{h}" loading="lazy"></button>')
+    return "\n".join(out)
+
+
+
 def photo_width(name):
     try:
         from PIL import Image
@@ -351,9 +445,9 @@ def court(key):
     for i, p in enumerate(LEADERSHIP[key]):
         name, title = html.escape(p["name"]), html.escape(p["title"])
         # the lead portrait is shown large only when the photo is sharp enough for it
-        cls = "seat seat--hero" if i == 0 and key != "exec-stool" and photo_width(p["photo"]) >= 600 else "seat"
+        cls = "seat seat--hero" if i == 0 and key != "exec-stool" and photo_width(_photo_name(p)) >= 600 else "seat"
         cards.append(f"""        <div class="{cls}">
-          <div class="seat-frame"><img src="assets/img/people/{p['photo']}" alt="{name}" loading="lazy" width="315" height="350"></div>
+          <div class="seat-frame"><img src="assets/img/people/{_photo(p)}" alt="{name}" loading="lazy" width="315" height="350"></div>
           <div class="stool-title">{title}</div>
           <h3>{name}</h3>
         </div>""")
@@ -382,7 +476,7 @@ def court_data():
                 continue
             for p in people:
                 if sub in p["title"].lower().replace(" ", ""):
-                    holders.append({"name": p["name"], "title": p["title"], "photo": "assets/img/people/" + p["photo"]})
+                    holders.append({"name": p["name"], "title": p["title"], "photo": "assets/img/people/" + _photo_name(p)})
         if not holders:
             raise SystemExit("court_data: no holder found for " + name)
         out.append({"key": key, "name": name, "role": role, "blurb": blurb, "people": holders})
@@ -443,6 +537,7 @@ self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
+  if (url.pathname.indexOf('/admin/') !== -1) return; // the admin page is never cached
 
   // Pages: network first so content stays fresh; saved copy or the offline page when there is no signal
   if (req.mode === 'navigate') {
@@ -496,6 +591,7 @@ def build():
         body = body.replace("<!--newsletter-->", newsletter("pg")).replace("<!--social-->", social_html())
         body = body.replace("<!--events:home-->", events_block("home")).replace("<!--events:page-->", events_block("page")).replace("<!--events:recent-->", events_recent())
         body = body.replace("<!--donate-->", donate_block())
+        body = body.replace("<!--gallery:uploads-->", gallery_uploads())
         body = body.replace("<!--register-->", register()).replace("<!--akwasidae-->", akwasidae())
         body = re.sub(r"<!--court:([\w-]+)-->", lambda mm: court(mm.group(1)), body)
         body = body.replace("<!--courtdata-->", '<script type="application/json" id="court-data">' + json.dumps(court_data(), ensure_ascii=False).replace("</", "<\\/") + "</script>")

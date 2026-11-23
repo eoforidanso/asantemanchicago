@@ -60,6 +60,7 @@ self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
+  if (url.pathname.indexOf('/admin/') !== -1) return; // the admin page is never cached
 
   // Pages: network first so content stays fresh; saved copy or the offline page when there is no signal
   if (req.mode === 'navigate') {
