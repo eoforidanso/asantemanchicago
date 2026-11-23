@@ -236,8 +236,8 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
     cur = (i + slides.length) % slides.length;
     slides.forEach((s, j) => { s.classList.toggle('is-on', j === cur); s.setAttribute('aria-hidden', String(j !== cur)); });
     dots.forEach((d, j) => d.setAttribute('aria-current', String(j === cur)));
-    lab.textContent = slides[cur].dataset.label;
-    cap.textContent = slides[cur].dataset.cap;
+    if (lab) lab.textContent = slides[cur].dataset.label;
+    if (cap) cap.textContent = slides[cur].dataset.cap;
   }
   const stop = () => { clearInterval(timer); timer = null; };
   const start = () => { if (paused || timer || document.hidden) return; timer = setInterval(() => go(cur + 1), 7000); };
